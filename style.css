@@ -54,17 +54,17 @@ h1 {
     background-clip: text;
     color: transparent;
     text-align: center;
-    display: flex; /* Add flexbox for alignment */
-    align-items: center; /* Vertically center the icon */
-    justify-content: center; /* Horizontally center the content */
-    gap: 0.5rem; /* Space between Euro, icon, and Guess */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 h1 i.fas.fa-basketball {
-    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Slightly smaller than text */
-    color: var(--primary); /* Match the gradient start color */
-    background: none; /* Remove gradient from icon */
-    -webkit-background-clip: initial; /* Reset background clip */
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--primary);
+    background: none;
+    -webkit-background-clip: initial;
     background-clip: initial;
 }
 
@@ -179,7 +179,6 @@ button:hover {
     overflow-y: hidden;
 }
 
-/* Subtle animation for guess-container reset in Unlimited mode */
 .guess-container.reset-animate {
     animation: resetPulse 0.4s ease-in-out forwards;
 }
@@ -202,7 +201,7 @@ button:hover {
 .guess-header,
 .guess-list li {
     display: grid;
-    grid-template-columns: repeat(7, minmax(80px, 1fr));
+    grid-template-columns: minmax(120px, 1fr) minmax(100px, 1fr) minmax(80px, 1fr) minmax(80px, 1fr) minmax(80px, 1fr) minmax(100px, 1fr) minmax(80px, 1fr);
     gap: 0.5rem;
     padding: 0.75rem;
     min-width: 0;
@@ -225,6 +224,19 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.guess-list li span:nth-child(2) { /* Team column */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: visible;
+}
+
+.guess-header span:nth-child(2) { /* Team header */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .guess-list {
@@ -452,8 +464,8 @@ footer {
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     z-index: 1000;
-    justify-content: center; /* Already present */
-    align-items: center; /* Already present */
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
@@ -467,7 +479,7 @@ footer {
     overflow-y: auto;
     box-shadow: 0 8px 25px var(--card-shadow);
     animation: popIn 0.3s ease-out;
-    text-align: center; /* Center all text inside */
+    text-align: center;
 }
 
 @keyframes popIn {
@@ -629,7 +641,7 @@ footer {
 
     .guess-header,
     .guess-list li {
-        grid-template-columns: 80px 50px 40px 40px 40px 50px 30px;
+        grid-template-columns: 80px 70px 40px 40px 40px 50px 30px;
         gap: 0.15rem;
         padding: 0.25rem;
         font-size: clamp(0.6rem, 1.8vw, 0.8rem);
@@ -642,7 +654,6 @@ footer {
         white-space: normal;
         word-wrap: break-word;
         overflow: hidden;
-        text-overflow: ellipsis;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -664,6 +675,21 @@ footer {
         text-align: center;
     }
 
+    .guess-list li span:nth-child(2) { /* Team column */
+        font-size: clamp(0.55rem, 1.6vw, 0.75rem);
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        overflow: visible;
+        padding: 0.05rem 0.1rem;
+    }
+
+    .guess-header span:nth-child(2) { /* Team header */
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
     .guess-list li span {
         min-height: 20px;
     }
@@ -673,7 +699,6 @@ footer {
         min-height: 20px;
     }
 
-    /* Split the rules to preserve .correct styling */
     .guess-list li .correct {
         padding: 0.05rem 0.1rem;
         white-space: normal;
@@ -681,8 +706,8 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(34, 197, 94, 0.2); /* Preserve green background */
-        color: #15803d; /* Preserve green text color */
+        background: rgba(34, 197, 94, 0.2);
+        color: #15803d;
     }
 
     .guess-list li .incorrect {
@@ -692,8 +717,8 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 215, 0, 0.3); /* Yellow background */
-        color: #b45309; /* Dark amber text */
+        background: rgba(255, 215, 0, 0.3);
+        color: #b45309;
     }
 
     .guess-list li {
@@ -756,37 +781,34 @@ footer {
 
 @media (max-width: 480px) {
     .mode-toggle {
-        justify-content: center; /* Already present, reinforcing */
+        justify-content: center;
     }
 
     .mode-toggle button {
-        flex: 1; /* Make buttons take equal space */
-        min-width: 100px; /* Ensure buttons are wide enough for text */
-        max-width: 120px; /* Prevent buttons from getting too wide */
-        text-align: center; /* Center the text inside the button */
-        padding: 0.5rem; /* Adjust padding for better centering */
-        font-size: 0.9rem; /* Slightly smaller font for mobile */
+        flex: 1;
+        min-width: 100px;
+        max-width: 120px;
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 0.9rem;
     }
 }
 
 .mode-toggle button.active {
     background: var(--primary);
-    transform: scale(1.05); /* Slight scale-up for emphasis */
+    transform: scale(1.05);
     transition: transform 0.2s ease, background 0.3s ease;
 }
 
-/* Hover effect for buttons */
 .mode-toggle button:hover {
     background: var(--accent);
     transform: translateY(-2px);
 }
 
-/* Class to trigger the animation when mode switches */
 .mode-toggle.animate {
     animation: slideFade 0.5s ease-in-out forwards;
 }
 
-/* Define the slide and fade animation */
 @keyframes slideFade {
     0% {
         opacity: 0.7;
@@ -794,11 +816,11 @@ footer {
     }
     50% {
         opacity: 0.3;
-        transform: translateX(5px); /* Subtle slide to the right */
+        transform: translateX(5px);
     }
     100% {
         opacity: 1;
-        transform: translateX(0); /* Slide back to original position */
+        transform: translateX(0);
     }
 }
 
@@ -814,8 +836,8 @@ footer {
     cursor: pointer;
     box-shadow: 0 4px 15px var(--card-shadow);
     transition: all 0.3s ease;
-    width: auto; /* Prevent stretching */
-    display: inline-block; /* Ensure it behaves as a centered button */
+    width: auto;
+    display: inline-block;
 }
 
 .try-again-button:hover {
@@ -823,7 +845,6 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Specific styling for unlimitedGameOverModal to reinforce centering */
 #unlimitedGameOverModal .modal-content {
     display: flex;
     flex-direction: column;
@@ -852,7 +873,6 @@ footer {
     }
 }
 
-/* Subtle pulse animation for waiting period */
 .guess-container.new-player-waiting {
     animation: waitingPulse 1s ease-in-out infinite;
 }
