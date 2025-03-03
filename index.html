@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EuroGuess</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+    
+    <button id="helpButton" class="help-button">
+        <i class="fas fa-question-circle"></i>
+    </button>
+
+    <button id="statsButton" class="stats-button">
+        <i class="fas fa-chart-bar"></i>
+    </button>
+    
+    <div id="statsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Statistics</h2>
+            <div id="statsContent">
+                <p>Games Played: <span id="gamesPlayed">0</span></p>
+                <p>Win Rate: <span id="winRate">0%</span></p>
+                <p>Average Guesses: <span id="avgGuesses">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Game Over!</h2>
+            <p>You've used all 7 guesses.</p>
+            <p>Today's player was: <strong><span id="revealPlayer"></span></strong></p>
+            <p>Try again tomorrow!</p>
+        </div>
+    </div>
+
+    <div id="unlimitedGameOverModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Game Over!</h2>
+            <p>You've used all 7 guesses.</p>
+            <p>The player was: <strong><span id="revealUnlimitedPlayer"></span></strong></p>
+            <button id="tryAgainButton" class="try-again-button">Try Again</button>
+        </div>
+    </div>
+
+
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>How to Play EuroGuess</h2>
+            <p>Guess the EuroLeague player in 7 tries! After each guess, see how close you were.</p>
+            <ul>
+                <li><strong>Team:</strong> Current team.</li>
+                <li><strong>Position:</strong> e.g., G, F, C.</li>
+                <li><strong>Height:</strong> In cm.</li>
+                <li><strong>Age:</strong> Player's age.</li>
+                <li><strong>Country:</strong> Their origin.</li>
+                <li><strong>Jersey:</strong> Their number.</li>
+            </ul>
+            <p><span class="correct-example">✅</span> = correct. <span class="incorrect-example">↑</span>/<span class="incorrect-example">↓</span> = higher/lower.</p>
+            <p>The yellow box means you are within 3 units of the correct number, with the green box meaning you guessed the stat correctly!</p>
+        </div>
+    </div>
+
+    <h1>EuroGuess</h1>
+    <h2 id="dailyChallenge">Daily EuroGuess - Loading...</h2>
+    <div class="mode-toggle">
+        <button id="dailyModeButton" class="active">Daily</button>
+        <button id="unlimitedModeButton">Unlimited</button>
+    </div>
+<div class="input-container">
+    <input type="text" id="playerInput" placeholder="Type player name..." oninput="showSuggestions()">
+    <div class="autocomplete-suggestions" id="suggestions"></div>
+    <button onclick="checkGuess()">Guess</button>
+    <div id="timer">00:00</div>
+</div>
+    
+
+    <div class="guess-container">
+        <h2>Previous Guesses</h2>
+        <div class="guess-header">
+            <span data-short="Player">Player</span>
+            <span data-short="Team">Team</span>
+            <span data-short="Height">Height</span>
+            <span data-short="Age">Age</span>
+            <span data-short="Jersey">Jersey</span>
+            <span data-short="Country">Country</span>
+            <span data-short="Pos">Position</span>
+        </div>
+        <ul class="guess-list" id="guessList">
+            <li class="empty-row"><span class="guess-number">1</span></li>
+            <li class="empty-row"><span class="guess-number">2</span></li>
+            <li class="empty-row"><span class="guess-number">3</span></li>
+            <li class="empty-row"><span class="guess-number">4</span></li>
+            <li class="empty-row"><span class="guess-number">5</span></li>
+            <li class="empty-row"><span class="guess-number">6</span></li>
+            <li class="empty-row"><span class="guess-number">7</span></li>
+        </ul>
+    </div>
+
+    <div class="social-media">
+        <a href="https://www.instagram.com/timotaa" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.twitter.com/timotaa_" target="_blank" class="social-icon">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="legal-links">
+                <a href="cookie-settings.html">Cookie Settings</a>
+                <a href="terms-and-conditions.html">Terms and Conditions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                © Mihailo Timotić
+            </div>
+        </div>
+    </footer>
+
+    <script src="script2.js"></script>
+</body>
+</html>

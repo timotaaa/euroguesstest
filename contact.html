@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Reach out for questions or feedback.</p>
+        </div>
+
+        <div class="contact-content">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-to-home">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Social Media Links (Matching ELWordle) -->
+    <div class="social-media">
+        <a href="https://www.instagram.com/timotaa" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.twitter.com/timotaa_" target="_blank" class="social-icon">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="legal-links">
+                <a href="cookie-settings.html">Cookie Settings</a>
+                <a href="terms-and-conditions.html">Terms and Conditions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                © Mihailo Timotić
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Submission Feedback -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const successDiv = document.createElement('div');
+            successDiv.classList.add('success-message');
+            successDiv.textContent = 'Message sent successfully!';
+            document.body.appendChild(successDiv);
+            setTimeout(() => successDiv.remove(), 3000);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
