@@ -161,26 +161,25 @@ const players = [
         { name: "Khalifa Diop", height: 211, age: 23, jersey: 18, country: "Senegal", position: "C", team: "Baskonia" },
         { name: "Luka Samanic", height: 208, age: 25, jersey: 99, country: "Croatia", position: "PF", team: "Baskonia" },
 
-        // Milan
+        //Armani
 
-            { name: "Nenad Dimitrijevic", height: 190, age: 27, jersey: 1, country: "North Macedonia", position: "PG", team: "Emporio Armani Milan" },
-            { name: "Armoni Brooks", height: 191, age: 26, jersey: 12, country: "USA", position: "SG", team: "Emporio Armani Milan" },
-            { name: "Leandro Bolmaro", height: 198, age: 24, jersey: 10, country: "Argentina", position: "SG", team: "Emporio Armani Milan" },
-            { name: "Freddie Gillespie", height: 211, age: 27, jersey: 55, country: "USA", position: "C", team: "Emporio Armani Milan" },
-            { name: "Nico Mannion", height: 188, age: 23, jersey: 2, country: "Italy", position: "PG", team: "Emporio Armani Milan" },
-            { name: "Fabien Causeur", height: 196, age: 37, jersey: 5, country: "France", position: "SG", team: "Emporio Armani Milan" },
-            { name: "Stefano Tonut", height: 194, age: 31, jersey: 7, country: "Italy", position: "SG", team: "Emporio Armani Milan" },
-            { name: "Diego Flaccadori", height: 193, age: 28, jersey: 21, country: "Italy", position: "PG", team: "Emporio Armani Milan" },
-            { name: "Shavon Shields", height: 201, age: 30, jersey: 31, country: "Denmark", position: "SF", team: "Emporio Armani Milan" },
-            { name: "Ousmane Diop", height: 203, age: 25, jersey: 25, country: "Senegal", position: "C", team: "Emporio Armani Milan" },
-            { name: "Nikola Mirotic", height: 208, age: 34, jersey: 33, country: "Montenegro", position: "PF", team: "Emporio Armani Milan" },
-            { name: "Josh Nebo", height: 206, age: 27, jersey: 32, country: "USA", position: "C", team: "Emporio Armani Milan" },
-            { name: "Zach LeDay", height: 202, age: 30, jersey: 16, country: "USA", position: "PF", team: "Emporio Armani Milan" },
-            { name: "Giampaolo Ricci", height: 202, age: 33, jersey: 17, country: "Italy", position: "PF", team: "Emporio Armani Milan" },
+            { name: "Nenad Dimitrijevic", height: 190, age: 27, jersey: 1, country: "North Macedonia", position: "PG", team: "Emporio Armani" },
+            { name: "Armoni Brooks", height: 191, age: 26, jersey: 12, country: "USA", position: "SG", team: "Emporio Armani" },
+            { name: "Leandro Bolmaro", height: 198, age: 24, jersey: 10, country: "Argentina", position: "SG", team: "Emporio Armani" },
+            { name: "Freddie Gillespie", height: 211, age: 27, jersey: 55, country: "USA", position: "C", team: "Emporio Armani" },
+            { name: "Nico Mannion", height: 188, age: 23, jersey: 2, country: "Italy", position: "PG", team: "Emporio Armani" },
+            { name: "Fabien Causeur", height: 196, age: 37, jersey: 5, country: "France", position: "SG", team: "Emporio Armani" },
+            { name: "Stefano Tonut", height: 194, age: 31, jersey: 7, country: "Italy", position: "SG", team: "Emporio Armani" },
+            { name: "Diego Flaccadori", height: 193, age: 28, jersey: 21, country: "Italy", position: "PG", team: "Emporio Armani" },
+            { name: "Shavon Shields", height: 201, age: 30, jersey: 31, country: "Denmark", position: "SF", team: "Emporio Armani" },
+            { name: "Ousmane Diop", height: 203, age: 25, jersey: 25, country: "Senegal", position: "C", team: "Emporio Armani" },
+            { name: "Nikola Mirotic", height: 208, age: 34, jersey: 33, country: "Montenegro", position: "PF", team: "Emporio Armani" },
+            { name: "Josh Nebo", height: 206, age: 27, jersey: 32, country: "USA", position: "C", team: "Emporio Armani" },
+            { name: "Zach LeDay", height: 202, age: 30, jersey: 16, country: "USA", position: "PF", team: "Emporio Armani" },
+            { name: "Giampaolo Ricci", height: 202, age: 33, jersey: 17, country: "Italy", position: "PF", team: "Emporio Armani" },
 
         // Bayern
 
-        
             { name: "Carsen Edwards", height: 180, age: 26, jersey: 3, country: "USA", position: "PG", team: "Bayern Munich" },
             { name: "Nick Weiler-Babb", height: 196, age: 29, jersey: 0, country: "Germany", position: "SG", team: "Bayern Munich" },
             { name: "Vladimir Lucic", height: 204, age: 35, jersey: 11, country: "Serbia", position: "SF", team: "Bayern Munich" },
@@ -215,28 +214,26 @@ const players = [
             { name: "Errick McCollum", height: 188, age: 37, jersey: 0, country: "USA", position: "PG", team: "Fenerbahce" },
 
         // Asvel
-
         
-            { name: "Paris Lee", height: 183, age: 29, jersey: 3, country: "USA", position: "PG", team: "LDLC ASVEL" },
-            { name: "Edwin Jackson", height: 190, age: 35, jersey: 11, country: "France", position: "SG", team: "LDLC ASVEL" },
-            { name: "Nando De Colo", height: 196, age: 37, jersey: 12, country: "France", position: "SG", team: "LDLC ASVEL" },
-            { name: "Charles Kahudi", height: 196, age: 38, jersey: 5, country: "France", position: "SF", team: "LDLC ASVEL" },
-            { name: "Theo Maledon", height: 192, age: 23, jersey: 6, country: "France", position: "PG", team: "LDLC ASVEL" },
-            { name: "Joffrey Lauvergne", height: 211, age: 33, jersey: 7, country: "France", position: "C", team: "LDLC ASVEL" },
-            { name: "Mbaye Ndiaye", height: 203, age: 25, jersey: 24, country: "Senegal", position: "PF", team: "LDLC ASVEL" },
-            { name: "David Lighty", height: 195, age: 36, jersey: 23, country: "USA", position: "SG", team: "LDLC ASVEL" },
-            { name: "Melvin Ajinca", height: 203, age: 20, jersey: 8, country: "France", position: "SF", team: "LDLC ASVEL" },
-            { name: "Andre Roberson", height: 201, age: 33, jersey: 21, country: "USA", position: "SF", team: "LDLC ASVEL" },
-            { name: "Yohann Sissoko", height: 188, age: 19, jersey: 30, country: "France", position: "PG", team: "LDLC ASVEL" },
-            { name: "Tarik Black", height: 206, age: 33, jersey: 28, country: "USA", position: "C", team: "LDLC ASVEL" },
-            { name: "Mbiya Paul", height: 200, age: 19, jersey: 34, country: "France", position: "SF", team: "LDLC ASVEL" },
-            { name: "Shaquille Harrison", height: 190, age: 31, jersey: 1, country: "USA", position: "PG", team: "LDLC ASVEL" },
-            { name: "Ben Bentil", height: 206, age: 29, jersey: 50, country: "Ghana", position: "PF", team: "LDLC ASVEL" },
-            { name: "Neal Sako", height: 211, age: 25, jersey: 13, country: "France", position: "C", team: "LDLC ASVEL" },
+            { name: "Paris Lee", height: 183, age: 29, jersey: 3, country: "USA", position: "PG", team: "LDLC Asvel" },
+            { name: "Edwin Jackson", height: 190, age: 35, jersey: 11, country: "France", position: "SG", team: "LDLC Asvel" },
+            { name: "Nando De Colo", height: 196, age: 37, jersey: 12, country: "France", position: "SG", team: "LDLC Asvel" },
+            { name: "Charles Kahudi", height: 196, age: 38, jersey: 5, country: "France", position: "SF", team: "LDLC Asvel" },
+            { name: "Theo Maledon", height: 192, age: 23, jersey: 6, country: "France", position: "PG", team: "LDLC Asvel" },
+            { name: "Joffrey Lauvergne", height: 211, age: 33, jersey: 7, country: "France", position: "C", team: "LDLC Asvel" },
+            { name: "Mbaye Ndiaye", height: 203, age: 25, jersey: 24, country: "Senegal", position: "PF", team: "LDLC Asvel" },
+            { name: "David Lighty", height: 195, age: 36, jersey: 23, country: "USA", position: "SG", team: "LDLC Asvel" },
+            { name: "Melvin Ajinca", height: 203, age: 20, jersey: 8, country: "France", position: "SF", team: "LDLC Asvel" },
+            { name: "Andre Roberson", height: 201, age: 33, jersey: 21, country: "USA", position: "SF", team: "LDLC Asvel" },
+            { name: "Yohann Sissoko", height: 188, age: 19, jersey: 30, country: "France", position: "PG", team: "LDLC Asvel" },
+            { name: "Tarik Black", height: 206, age: 33, jersey: 28, country: "USA", position: "C", team: "LDLC Asvel" },
+            { name: "Mbiya Paul", height: 200, age: 19, jersey: 34, country: "France", position: "SF", team: "LDLC Asvel" },
+            { name: "Shaquille Harrison", height: 190, age: 31, jersey: 1, country: "USA", position: "PG", team: "LDLC Asvel" },
+            { name: "Ben Bentil", height: 206, age: 29, jersey: 50, country: "Ghana", position: "PF", team: "LDLC Asvel" },
+            { name: "Neal Sako", height: 211, age: 25, jersey: 13, country: "France", position: "C", team: "LDLC Asvel" },
 
         // Maccabi
 
-        
             { name: "Jimmy Clark III", height: 191, age: 25, jersey: 2, country: "USA", position: "PG", team: "Maccabi" },
             { name: "Rokas Jokubaitis", height: 193, age: 24, jersey: 31, country: "Lithuania", position: "PG", team: "Maccabi" },
             { name: "Jaylen Hoard", height: 205, age: 25, jersey: 1, country: "France", position: "PF", team: "Maccabi" },
@@ -254,7 +251,6 @@ const players = [
           
           // Olympiacos
 
-          
             { name: "Thomas Walkup", height: 193, age: 32, jersey: 0, country: "Greece", position: "PG", team: "Olympiacos" },
             { name: "Tyler Dorsey", height: 196, age: 29, jersey: 22, country: "USA", position: "SG", team: "Olympiacos" },
             { name: "Saben Lee", height: 188, age: 25, jersey: 9, country: "USA", position: "PG", team: "Olympiacos" },
@@ -271,8 +267,7 @@ const players = [
             { name: "Nathan Mensah", height: 208, age: 26, jersey: 31, country: "Ghana", position: "C", team: "Olympiacos" },
             { name: "Moses Wright", height: 203, age: 26, jersey: 2, country: "USA", position: "C", team: "Olympiacos" },
             { name: "Luca Vildoza", height: 191, age: 29, jersey: 8, country: "Argentina", position: "PG", team: "Olympiacos" },
-          
-
+        
         // Real
 
             { name: "Facundo Campazzo", height: 181, age: 33, jersey: 7, country: "Argentina", position: "PG", team: "Real Madrid" },
@@ -292,21 +287,20 @@ const players = [
 
         // Virtus
 
-
-            { name: "Matt Morgan", height: 188, age: 27, jersey: 30, country: "USA", position: "PG", team: "Virtus Bologna" },
-            { name: "Isaia Cordinier", height: 197, age: 28, jersey: 0, country: "France", position: "SG", team: "Virtus Bologna" },
-            { name: "Marco Belinelli", height: 196, age: 38, jersey: 3, country: "Italy", position: "SG", team: "Virtus Bologna" },
-            { name: "Rayjon Tucker", height: 191, age: 27, jersey: 59, country: "USA", position: "SG", team: "Virtus Bologna" },
-            { name: "Alessandro Pajola", height: 194, age: 25, jersey: 6, country: "Italy", position: "PG", team: "Virtus Bologna" },
-            { name: "Daniel Hackett", height: 199, age: 37, jersey: 23, country: "Italy", position: "PG", team: "Virtus Bologna" },
-            { name: "Will Clyburn", height: 201, age: 34, jersey: 8, country: "USA", position: "SF", team: "Virtus Bologna" },
-            { name: "Nicola Akele", height: 203, age: 26, jersey: 45, country: "Italy", position: "PF", team: "Virtus Bologna" },
-            { name: "Tornike Shengelia", height: 206, age: 33, jersey: 21, country: "Georgia", position: "PF", team: "Virtus Bologna" },
-            { name: "Andrejs Grazulis", height: 202, age: 31, jersey: 24, country: "Latvia", position: "PF", team: "Virtus Bologna" },
-            { name: "Achille Polonara", height: 205, age: 33, jersey: 33, country: "Italy", position: "PF", team: "Virtus Bologna" },
-            { name: "Ante Zizic", height: 210, age: 28, jersey: 41, country: "Croatia", position: "C", team: "Virtus Bologna" },
-            { name: "Mouhamet Diouf", height: 206, age: 23, jersey: 35, country: "Italy", position: "C", team: "Virtus Bologna" },
-            { name: "Justin Holiday", height: 198, age: 35, jersey: 1, country: "USA", position: "SG", team: "Virtus Bologna" },
+            { name: "Matt Morgan", height: 188, age: 27, jersey: 30, country: "USA", position: "PG", team: "Virtus" },
+            { name: "Isaia Cordinier", height: 197, age: 28, jersey: 0, country: "France", position: "SG", team: "Virtus" },
+            { name: "Marco Belinelli", height: 196, age: 38, jersey: 3, country: "Italy", position: "SG", team: "Virtus" },
+            { name: "Rayjon Tucker", height: 191, age: 27, jersey: 59, country: "USA", position: "SG", team: "Virtus" },
+            { name: "Alessandro Pajola", height: 194, age: 25, jersey: 6, country: "Italy", position: "PG", team: "Virtus" },
+            { name: "Daniel Hackett", height: 199, age: 37, jersey: 23, country: "Italy", position: "PG", team: "Virtus" },
+            { name: "Will Clyburn", height: 201, age: 34, jersey: 8, country: "USA", position: "SF", team: "Virtus" },
+            { name: "Nicola Akele", height: 203, age: 26, jersey: 45, country: "Italy", position: "PF", team: "Virtus" },
+            { name: "Tornike Shengelia", height: 206, age: 33, jersey: 21, country: "Georgia", position: "PF", team: "Virtus" },
+            { name: "Andrejs Grazulis", height: 202, age: 31, jersey: 24, country: "Latvia", position: "PF", team: "Virtus" },
+            { name: "Achille Polonara", height: 205, age: 33, jersey: 33, country: "Italy", position: "PF", team: "Virtus" },
+            { name: "Ante Zizic", height: 210, age: 28, jersey: 41, country: "Croatia", position: "C", team: "Virtus" },
+            { name: "Mouhamet Diouf", height: 206, age: 23, jersey: 35, country: "Italy", position: "C", team: "Virtus" },
+            { name: "Justin Holiday", height: 198, age: 35, jersey: 1, country: "USA", position: "SG", team: "Virtus" },
 
         // Zalgiris
 
@@ -340,8 +334,9 @@ let unlimitedTimerInterval = null;
 // Function to get a seed based on the current date (for Daily mode)
 function getDailySeed() {
     const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0);
-    const diff = now - start;
+    const utcStart = new Date(Date.UTC(now.getUTCFullYear(), 0, 0)); // January 1st of the current UTC year
+    const utcNow = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+    const diff = utcNow - utcStart;
     const oneDay = 1000 * 60 * 60 * 24;
     return Math.floor(diff / oneDay);
 }
@@ -349,7 +344,7 @@ function getDailySeed() {
 // Function to get the current date as a string (YYYY-MM-DD)
 function getCurrentDateString() {
     const now = new Date();
-    return now.toISOString().split('T')[0]; // e.g., "2025-03-02"
+    return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())).toISOString().split('T')[0];
 }
 
 // Function to select a random player (Daily mode uses seed, Unlimited uses random)
@@ -371,7 +366,7 @@ function selectPlayer(isDailyMode) {
 // Set initial target players
 dailyTargetPlayer = selectPlayer(true);
 unlimitedTargetPlayer = selectPlayer(false);
-console.log("Daily Target Player:", dailyTargetPlayer);
+console.log("Daily Target Player:", dailyTargetPlayer); // For debugging
 console.log("Unlimited Target Player:", unlimitedTargetPlayer);
 
 // Timer functions
