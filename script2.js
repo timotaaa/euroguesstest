@@ -46,10 +46,10 @@ const players = [
     { name: "Nadir Hifi", height: 188, age: 22, jersey: 2, country: "Algeria", position: "G", team: "Paris Basketball" },
     { name: "Daulton Hommes", height: 204, age: 28, jersey: 34, country: "USA", position: "F", team: "Paris Basketball" },
     { name: "Collin Malcolm", height: 201, age: 27, jersey: 1, country: "USA", position: "SF", team: "Paris Basketball" },
-    { name: "Bandja Sy", height: 204, age: 34, jersey: 5, country: "Mali/France", position: "F", team: "Paris Basketball" },
-    { name: "Yakuba Ouattara", height: 192, age: 33, jersey: 24, country: "France/Ghana", position: "SG", team: "Paris Basketball" },
+    { name: "Bandja Sy", height: 204, age: 34, jersey: 5, country: "France", position: "F", team: "Paris Basketball" },
+    { name: "Yakuba Ouattara", height: 192, age: 33, jersey: 24, country: "France", position: "SG", team: "Paris Basketball" },
     { name: "Maodo Lo", height: 191, age: 32, jersey: 12, country: "Germany", position: "PG", team: "Paris Basketball" },
-    { name: "Sebastian Herrera", height: 193, age: 27, jersey: 7, country: "Chile/Germany", position: "SG", team: "Paris Basketball" },
+    { name: "Sebastian Herrera", height: 193, age: 27, jersey: 7, country: "Germany", position: "SG", team: "Paris Basketball" },
     { name: "Léopold Cavalière", height: 203, age: 28, jersey: 4, country: "France", position: "PF", team: "Paris Basketball" },
     { name: "Enzo Shahrvin", height: 201, age: 22, jersey: 18, country: "France", position: "PF", team: "Paris Basketball" },
     { name: "Leon Kratzer", height: 211, age: 28, jersey: 8, country: "Germany", position: "C", team: "Paris Basketball" },
@@ -159,8 +159,171 @@ const players = [
         { name: "Ousmane Ndiaye", height: 211, age: 20, jersey: 46, country: "Senegal", position: "PF", team: "Baskonia" },
         { name: "Donta Hall", height: 208, age: 27, jersey: 45, country: "USA", position: "C", team: "Baskonia" },
         { name: "Khalifa Diop", height: 211, age: 23, jersey: 18, country: "Senegal", position: "C", team: "Baskonia" },
-        { name: "Luka Samanic", height: 208, age: 25, jersey: 99, country: "Croatia", position: "PF", team: "Baskonia" }
+        { name: "Luka Samanic", height: 208, age: 25, jersey: 99, country: "Croatia", position: "PF", team: "Baskonia" },
 
+        // Milan
+
+            { name: "Nenad Dimitrijevic", height: 190, age: 27, jersey: 1, country: "North Macedonia", position: "PG", team: "Emporio Armani Milan" },
+            { name: "Armoni Brooks", height: 191, age: 26, jersey: 12, country: "USA", position: "SG", team: "Emporio Armani Milan" },
+            { name: "Leandro Bolmaro", height: 198, age: 24, jersey: 10, country: "Argentina", position: "SG", team: "Emporio Armani Milan" },
+            { name: "Freddie Gillespie", height: 211, age: 27, jersey: 55, country: "USA", position: "C", team: "Emporio Armani Milan" },
+            { name: "Nico Mannion", height: 188, age: 23, jersey: 2, country: "Italy", position: "PG", team: "Emporio Armani Milan" },
+            { name: "Fabien Causeur", height: 196, age: 37, jersey: 5, country: "France", position: "SG", team: "Emporio Armani Milan" },
+            { name: "Stefano Tonut", height: 194, age: 31, jersey: 7, country: "Italy", position: "SG", team: "Emporio Armani Milan" },
+            { name: "Diego Flaccadori", height: 193, age: 28, jersey: 21, country: "Italy", position: "PG", team: "Emporio Armani Milan" },
+            { name: "Shavon Shields", height: 201, age: 30, jersey: 31, country: "Denmark", position: "SF", team: "Emporio Armani Milan" },
+            { name: "Ousmane Diop", height: 203, age: 25, jersey: 25, country: "Senegal", position: "C", team: "Emporio Armani Milan" },
+            { name: "Nikola Mirotic", height: 208, age: 34, jersey: 33, country: "Montenegro", position: "PF", team: "Emporio Armani Milan" },
+            { name: "Josh Nebo", height: 206, age: 27, jersey: 32, country: "USA", position: "C", team: "Emporio Armani Milan" },
+            { name: "Zach LeDay", height: 202, age: 30, jersey: 16, country: "USA", position: "PF", team: "Emporio Armani Milan" },
+            { name: "Giampaolo Ricci", height: 202, age: 33, jersey: 17, country: "Italy", position: "PF", team: "Emporio Armani Milan" },
+
+        // Bayern
+
+        
+            { name: "Carsen Edwards", height: 180, age: 26, jersey: 3, country: "USA", position: "PG", team: "Bayern Munich" },
+            { name: "Nick Weiler-Babb", height: 196, age: 29, jersey: 0, country: "Germany", position: "SG", team: "Bayern Munich" },
+            { name: "Vladimir Lucic", height: 204, age: 35, jersey: 11, country: "Serbia", position: "SF", team: "Bayern Munich" },
+            { name: "Niels Giffey", height: 200, age: 33, jersey: 5, country: "Germany", position: "SF", team: "Bayern Munich" },
+            { name: "Andreas Obst", height: 191, age: 28, jersey: 13, country: "Germany", position: "SG", team: "Bayern Munich" },
+            { name: "Shabazz Napier", height: 183, age: 33, jersey: 8, country: "USA", position: "PG", team: "Bayern Munich" },
+            { name: "Ivan Kharchenkov", height: 198, age: 18, jersey: 10, country: "Germany", position: "SG", team: "Bayern Munich" },
+            { name: "Devin Booker", height: 205, age: 33, jersey: 31, country: "USA", position: "C", team: "Bayern Munich" },
+            { name: "Danko Brankovic", height: 217, age: 24, jersey: 22, country: "Croatia", position: "C", team: "Bayern Munich" },
+            { name: "Onuralp Bitim", height: 198, age: 25, jersey: 17, country: "Turkey", position: "SG/SF", team: "Bayern Munich" },
+            { name: "Elias Harris", height: 203, age: 35, jersey: 20, country: "Germany", position: "PF", team: "Bayern Munich" },
+            { name: "Oscar da Silva", height: 206, age: 26, jersey: 1, country: "Germany", position: "PF", team: "Bayern Munich" },
+            { name: "Johannes Voigtmann", height: 211, age: 32, jersey: 7, country: "Germany", position: "C", team: "Bayern Munich" },
+            { name: "Kevin Yebo", height: 207, age: 28, jersey: 53, country: "Germany", position: "PF", team: "Bayern Munich" },
+
+        // Fener
+
+            { name: "Wade Baldwin IV", height: 193, age: 28, jersey: 2, country: "USA", position: "PG", team: "Fenerbahce" },
+            { name: "Scottie Wilbekin", height: 188, age: 31, jersey: 3, country: "USA", position: "PG", team: "Fenerbahce" },
+            { name: "Marko Guduric", height: 196, age: 29, jersey: 23, country: "Serbia", position: "SG", team: "Fenerbahce" },
+            { name: "Devon Hall", height: 196, age: 29, jersey: 20, country: "USA", position: "SG", team: "Fenerbahce" },
+            { name: "Nigel Hayes-Davis", height: 203, age: 30, jersey: 11, country: "USA", position: "PF", team: "Fenerbahce" },
+            { name: "Melih Mahmutoglu", height: 191, age: 34, jersey: 10, country: "Turkey", position: "SG", team: "Fenerbahce" },
+            { name: "Nicolo Melli", height: 205, age: 34, jersey: 4, country: "Italy", position: "PF", team: "Fenerbahce" },
+            { name: "Tarik Biberovic", height: 201, age: 24, jersey: 13, country: "Turkey", position: "SF", team: "Fenerbahce" },
+            { name: "Dyshawn Pierre", height: 198, age: 31, jersey: 21, country: "Canada", position: "SF", team: "Fenerbahce" },
+            { name: "Bonzie Colson", height: 198, age: 28, jersey: 50, country: "USA", position: "SF", team: "Fenerbahce" },
+            { name: "Arturs Zagars", height: 190, age: 24, jersey: 32, country: "Latvia", position: "PG", team: "Fenerbahce" },
+            { name: "Khem Birch", height: 206, age: 32, jersey: 92, country: "Canada", position: "C", team: "Fenerbahce" },
+            { name: "Sertac Sanli", height: 212, age: 33, jersey: 5, country: "Turkey", position: "C", team: "Fenerbahce" },
+            { name: "Jilson Bango", height: 208, age: 26, jersey: 44, country: "Angola", position: "C", team: "Fenerbahce" },
+            { name: "Errick McCollum", height: 188, age: 37, jersey: 0, country: "USA", position: "PG", team: "Fenerbahce" },
+
+        // Asvel
+
+        
+            { name: "Paris Lee", height: 183, age: 29, jersey: 3, country: "USA", position: "PG", team: "LDLC ASVEL" },
+            { name: "Edwin Jackson", height: 190, age: 35, jersey: 11, country: "France", position: "SG", team: "LDLC ASVEL" },
+            { name: "Nando De Colo", height: 196, age: 37, jersey: 12, country: "France", position: "SG", team: "LDLC ASVEL" },
+            { name: "Charles Kahudi", height: 196, age: 38, jersey: 5, country: "France", position: "SF", team: "LDLC ASVEL" },
+            { name: "Theo Maledon", height: 192, age: 23, jersey: 6, country: "France", position: "PG", team: "LDLC ASVEL" },
+            { name: "Joffrey Lauvergne", height: 211, age: 33, jersey: 7, country: "France", position: "C", team: "LDLC ASVEL" },
+            { name: "Mbaye Ndiaye", height: 203, age: 25, jersey: 24, country: "Senegal", position: "PF", team: "LDLC ASVEL" },
+            { name: "David Lighty", height: 195, age: 36, jersey: 23, country: "USA", position: "SG", team: "LDLC ASVEL" },
+            { name: "Melvin Ajinca", height: 203, age: 20, jersey: 8, country: "France", position: "SF", team: "LDLC ASVEL" },
+            { name: "Andre Roberson", height: 201, age: 33, jersey: 21, country: "USA", position: "SF", team: "LDLC ASVEL" },
+            { name: "Yohann Sissoko", height: 188, age: 19, jersey: 30, country: "France", position: "PG", team: "LDLC ASVEL" },
+            { name: "Tarik Black", height: 206, age: 33, jersey: 28, country: "USA", position: "C", team: "LDLC ASVEL" },
+            { name: "Mbiya Paul", height: 200, age: 19, jersey: 34, country: "France", position: "SF", team: "LDLC ASVEL" },
+            { name: "Shaquille Harrison", height: 190, age: 31, jersey: 1, country: "USA", position: "PG", team: "LDLC ASVEL" },
+            { name: "Ben Bentil", height: 206, age: 29, jersey: 50, country: "Ghana", position: "PF", team: "LDLC ASVEL" },
+            { name: "Neal Sako", height: 211, age: 25, jersey: 13, country: "France", position: "C", team: "LDLC ASVEL" },
+
+        // Maccabi
+
+        
+            { name: "Jimmy Clark III", height: 191, age: 25, jersey: 2, country: "USA", position: "PG", team: "Maccabi" },
+            { name: "Rokas Jokubaitis", height: 193, age: 24, jersey: 31, country: "Lithuania", position: "PG", team: "Maccabi" },
+            { name: "Jaylen Hoard", height: 205, age: 25, jersey: 1, country: "France", position: "PF", team: "Maccabi" },
+            { name: "Tamir Blatt", height: 185, age: 27, jersey: 45, country: "Israel", position: "PG", team: "Maccabi" },
+            { name: "Rafi Menco", height: 198, age: 30, jersey: 8, country: "Israel", position: "SF", team: "Maccabi" },
+            { name: "John DiBartolomeo", height: 183, age: 33, jersey: 12, country: "USA", position: "PG", team: "Maccabi" },
+            { name: "Jasiel Rivero", height: 206, age: 31, jersey: 14, country: "Cuba", position: "C", team: "Maccabi" },
+            { name: "Jake Cohen", height: 210, age: 34, jersey: 15, country: "USA/Israel", position: "C", team: "Maccabi" },
+            { name: "Levi Randolph", height: 196, age: 32, jersey: 20, country: "USA", position: "SG", team: "Maccabi" },
+            { name: "Marial Shayok", height: 196, age: 29, jersey: 3, country: "South Sudan", position: "SG", team: "Maccabi" },
+            { name: "Will Rayman", height: 203, age: 27, jersey: 11, country: "USA", position: "PF", team: "Maccabi" },
+            { name: "Omer Mayer", height: 188, age: 18, jersey: 10, country: "Israel", position: "PG", team: "Maccabi" },
+            { name: "Roman Sorkin", height: 208, age: 28, jersey: 9, country: "Israel", position: "C", team: "Maccabi" },
+            { name: "Trevion Williams", height: 208, age: 24, jersey: 50, country: "USA", position: "C", team: "Maccabi" },
+          
+          // Olympiacos
+
+          
+            { name: "Thomas Walkup", height: 193, age: 32, jersey: 0, country: "Greece", position: "PG", team: "Olympiacos" },
+            { name: "Tyler Dorsey", height: 196, age: 29, jersey: 22, country: "USA", position: "SG", team: "Olympiacos" },
+            { name: "Saben Lee", height: 188, age: 25, jersey: 9, country: "USA", position: "PG", team: "Olympiacos" },
+            { name: "Evan Fournier", height: 199, age: 32, jersey: 94, country: "France", position: "SG", team: "Olympiacos" },
+            { name: "Shaquille McKissic", height: 195, age: 34, jersey: 77, country: "USA", position: "SF", team: "Olympiacos" },
+            { name: "Kostas Papanikolaou", height: 204, age: 34, jersey: 16, country: "Greece", position: "SF", team: "Olympiacos" },
+            { name: "Alec Peters", height: 206, age: 29, jersey: 25, country: "USA", position: "PF", team: "Olympiacos" },
+            { name: "Keenan Evans", height: 191, age: 28, jersey: 12, country: "USA", position: "PG", team: "Olympiacos" },
+            { name: "Moustapha Fall", height: 218, age: 33, jersey: 10, country: "France", position: "C", team: "Olympiacos" },
+            { name: "Nikola Milutinov", height: 213, age: 30, jersey: 33, country: "Serbia", position: "C", team: "Olympiacos" },
+            { name: "Naz Mitrou-Long", height: 193, age: 31, jersey: 3, country: "Canada", position: "PG", team: "Olympiacos" },
+            { name: "Sasha Vezenkov", height: 206, age: 29, jersey: 14, country: "Bulgaria", position: "PF", team: "Olympiacos" },
+            { name: "Giannoulis Larentzakis", height: 196, age: 31, jersey: 25, country: "Greece", position: "SG", team: "Olympiacos" },
+            { name: "Nathan Mensah", height: 208, age: 26, jersey: 31, country: "Ghana", position: "C", team: "Olympiacos" },
+            { name: "Moses Wright", height: 203, age: 26, jersey: 2, country: "USA", position: "C", team: "Olympiacos" },
+            { name: "Luca Vildoza", height: 191, age: 29, jersey: 8, country: "Argentina", position: "PG", team: "Olympiacos" },
+          
+
+        // Real
+
+            { name: "Facundo Campazzo", height: 181, age: 33, jersey: 7, country: "Argentina", position: "PG", team: "Real Madrid" },
+            { name: "Sergio Llull", height: 190, age: 37, jersey: 23, country: "Spain", position: "SG", team: "Real Madrid" },
+            { name: "Andres Feliz", height: 188, age: 27, jersey: 24, country: "Dominican Republic", position: "PG", team: "Real Madrid" },
+            { name: "Xavier Rathan-Mayes", height: 193, age: 30, jersey: 8, country: "Canada", position: "SG", team: "Real Madrid" },
+            { name: "Dzanan Musa", height: 205, age: 25, jersey: 31, country: "Bosnia and Herzegovina", position: "SF", team: "Real Madrid" },
+            { name: "Mario Hezonja", height: 203, age: 30, jersey: 11, country: "Croatia", position: "SF", team: "Real Madrid" },
+            { name: "Gabriel Deck", height: 198, age: 30, jersey: 14, country: "Argentina", position: "SF", team: "Real Madrid" },
+            { name: "Alberto Abalde", height: 202, age: 29, jersey: 6, country: "Spain", position: "SF", team: "Real Madrid" },
+            { name: "Hugo Gonzalez", height: 198, age: 19, jersey: 9, country: "Spain", position: "SG", team: "Real Madrid" },
+            { name: "Eli Ndiaye", height: 203, age: 20, jersey: 30, country: "Spain", position: "PF", team: "Real Madrid" },
+            { name: "Usman Garuba", height: 203, age: 22, jersey: 16, country: "Spain", position: "PF", team: "Real Madrid" },
+            { name: "Walter Tavares", height: 220, age: 32, jersey: 22, country: "Cape Verde", position: "C", team: "Real Madrid" },
+            { name: "Serge Ibaka", height: 208, age: 35, jersey: 18, country: "Spain", position: "C", team: "Real Madrid" },
+            { name: "Bruno Fernando", height: 206, age: 26, jersey: 20, country: "Angola", position: "C", team: "Real Madrid" },
+
+        // Virtus
+
+
+            { name: "Matt Morgan", height: 188, age: 27, jersey: 30, country: "USA", position: "PG", team: "Virtus Bologna" },
+            { name: "Isaia Cordinier", height: 197, age: 28, jersey: 0, country: "France", position: "SG", team: "Virtus Bologna" },
+            { name: "Marco Belinelli", height: 196, age: 38, jersey: 3, country: "Italy", position: "SG", team: "Virtus Bologna" },
+            { name: "Rayjon Tucker", height: 191, age: 27, jersey: 59, country: "USA", position: "SG", team: "Virtus Bologna" },
+            { name: "Alessandro Pajola", height: 194, age: 25, jersey: 6, country: "Italy", position: "PG", team: "Virtus Bologna" },
+            { name: "Daniel Hackett", height: 199, age: 37, jersey: 23, country: "Italy", position: "PG", team: "Virtus Bologna" },
+            { name: "Will Clyburn", height: 201, age: 34, jersey: 8, country: "USA", position: "SF", team: "Virtus Bologna" },
+            { name: "Nicola Akele", height: 203, age: 26, jersey: 45, country: "Italy", position: "PF", team: "Virtus Bologna" },
+            { name: "Tornike Shengelia", height: 206, age: 33, jersey: 21, country: "Georgia", position: "PF", team: "Virtus Bologna" },
+            { name: "Andrejs Grazulis", height: 202, age: 31, jersey: 24, country: "Latvia", position: "PF", team: "Virtus Bologna" },
+            { name: "Achille Polonara", height: 205, age: 33, jersey: 33, country: "Italy", position: "PF", team: "Virtus Bologna" },
+            { name: "Ante Zizic", height: 210, age: 28, jersey: 41, country: "Croatia", position: "C", team: "Virtus Bologna" },
+            { name: "Mouhamet Diouf", height: 206, age: 23, jersey: 35, country: "Italy", position: "C", team: "Virtus Bologna" },
+            { name: "Justin Holiday", height: 198, age: 35, jersey: 1, country: "USA", position: "SG", team: "Virtus Bologna" },
+
+        // Zalgiris
+
+            { name: "Sylvain Francisco", height: 188, age: 27, jersey: 3, country: "France", position: "PG", team: "Zalgiris" },
+            { name: "Lukas Lekavicius", height: 181, age: 30, jersey: 4, country: "Lithuania", position: "PG", team: "Zalgiris" },
+            { name: "Dovydas Giedraitis", height: 193, age: 24, jersey: 9, country: "Lithuania", position: "SG", team: "Zalgiris" },
+            { name: "Ignas Brazdeikis", height: 198, age: 26, jersey: 8, country: "Lithuania", position: "SF", team: "Zalgiris" },
+            { name: "Edgaras Ulanovas", height: 199, age: 33, jersey: 92, country: "Lithuania", position: "SF", team: "Zalgiris" },
+            { name: "Arnas Butkevicius", height: 198, age: 32, jersey: 51, country: "Lithuania", position: "SF", team: "Zalgiris" },
+            { name: "Alen Smailagic", height: 208, age: 24, jersey: 18, country: "Serbia", position: "PF", team: "Zalgiris" },
+            { name: "Deividas Sirvydis", height: 204, age: 24, jersey: 91, country: "Lithuania", position: "SF", team: "Zalgiris" },
+            { name: "Laurynas Birutis", height: 213, age: 27, jersey: 15, country: "Lithuania", position: "C", team: "Zalgiris" },
+            { name: "Isaiah Wong", height: 191, age: 24, jersey: 2, country: "USA", position: "SG", team: "Zalgiris" },
+            { name: "Bryant Dunston", height: 203, age: 38, jersey: 42, country: "USA", position: "C", team: "Zalgiris" },
+            { name: "Brady Manek", height: 206, age: 26, jersey: 45, country: "USA", position: "PF", team: "Zalgiris" },
+            { name: "Matt Mitchell", height: 198, age: 25, jersey: 21, country: "USA", position: "SF", team: "Zalgiris" }
+          
 ];
 
 // Game state variables
