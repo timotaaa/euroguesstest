@@ -18,6 +18,7 @@ const players = [
     { name: "Uroš Plavšić", height: 216, age: 26, jersey: 33, country: "Serbia", position: "C", team: "Crvena zvezda" },
     { name: "John Brown III", height: 203, age: 32, jersey: 1, country: "USA", position: "PF", team: "Crvena zvezda" },
     { name: "Branko Lazić", height: 196, age: 34, jersey: 10, country: "Serbia", position: "SG", team: "Crvena zvezda" },
+    { name: "Nikola Kalinić", height: 202, age: 33, jersey: 12, country: "Serbia", position: "SF", team: "Crvena zvezda" },
     //KKCZ
 
     //Partizan
