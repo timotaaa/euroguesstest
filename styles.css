@@ -7,6 +7,7 @@
     --card-bg: rgba(255, 255, 255, 0.9);
     --card-shadow: rgba(0, 0, 0, 0.15);
     --glass-blur: blur(12px);
+    --white: #fff;
 }
 
 body {
@@ -156,7 +157,6 @@ p {
 .submit-button:hover {
     background: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(244, 63, 94, 0.3);
 }
 
 /* Back to Home Button */

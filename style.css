@@ -168,7 +168,8 @@ button:hover {
 
 .guess-container {
     width: 100%;
-    max-width: 82%;
+    max-width: 70%;
+    min-width: 300px;
     background: var(--card-bg);
     backdrop-filter: var(--glass-blur);
     padding: 0.5rem;
@@ -177,6 +178,7 @@ button:hover {
     margin-top: 1.5rem;
     overflow-x: hidden;
     overflow-y: hidden;
+    box-sizing: border-box;
 }
 
 .guess-container.reset-animate {
@@ -201,11 +203,11 @@ button:hover {
 .guess-header,
 .guess-list li {
     display: grid;
-    grid-template-columns: minmax(120px, 1fr) minmax(100px, 1fr) minmax(80px, 1fr) minmax(80px, 1fr) minmax(80px, 1fr) minmax(100px, 1fr) minmax(80px, 1fr);
-    gap: 0.5rem;
-    padding: 0.75rem;
+    grid-template-columns: minmax(100px, 1fr) minmax(80px, 1fr) minmax(60px, 1fr) minmax(60px, 1fr) minmax(60px, 1fr) minmax(80px, 1fr) minmax(60px, 1fr);
+    gap: 0.3rem;
+    padding: 0.5rem;
     min-width: 0;
-    font-size: clamp(0.75rem, 2.5vw, 1rem);
+    font-size: clamp(0.7rem, 2.2vw, 0.9rem);
 }
 
 .guess-header {
@@ -219,21 +221,21 @@ button:hover {
 
 .guess-header span,
 .guess-list li span {
-    padding: 0.2rem 0;
+    padding: 0.15rem 0;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.guess-list li span:nth-child(2) { /* Team column */
+.guess-list li span:nth-child(2) {
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
     overflow: visible;
 }
 
-.guess-header span:nth-child(2) { /* Team header */
+.guess-header span:nth-child(2) {
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -242,10 +244,10 @@ button:hover {
 .guess-list {
     list-style: none;
     padding: 0;
-    margin: 0.75rem 0 0;
+    margin: 0.5rem 0 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.3rem;
 }
 
 .guess-list li {
@@ -253,7 +255,7 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 4px 15px var(--card-shadow);
     transition: all 0.3s ease;
-    min-height: 40px;
+    min-height: 35px;
 }
 
 .guess-list li > * {
@@ -263,8 +265,8 @@ button:hover {
     text-align: center;
     white-space: normal;
     word-wrap: break-word;
-    padding: 0.25rem;
-    min-height: 40px;
+    padding: 0.2rem;
+    min-height: 35px;
 }
 
 .guess-list li strong {
@@ -277,7 +279,7 @@ button:hover {
     border-radius: 6px;
     box-sizing: border-box;
     max-width: 100%;
-    padding: 0.25rem;
+    padding: 0.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -289,7 +291,7 @@ button:hover {
     border-radius: 6px;
     box-sizing: border-box;
     max-width: 100%;
-    padding: 0.25rem;
+    padding: 0.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,7 +305,7 @@ button:hover {
 .guess-list li.empty-row {
     opacity: 0.3;
     height: auto;
-    min-height: 40px;
+    min-height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -627,33 +629,34 @@ footer {
     }
 
     .guess-list li.empty-row {
-        height: 40px;
+        height: 35px;
     }
 }
 
 @media (max-width: 480px) {
     .guess-container {
-        padding: 0.25rem;
-        margin-bottom: 4rem;
+        padding: 0.5rem;
+        margin: 0 auto 4rem;
         max-width: 100%;
-        overflow-x: hidden;
+        overflow-x: auto;
+        box-sizing: border-box;
     }
 
     .guess-header,
     .guess-list li {
-        grid-template-columns: 80px 70px 40px 40px 40px 50px 30px;
-        gap: 0.15rem;
-        padding: 0.25rem;
-        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+        grid-template-columns: minmax(60px, 0.8fr) minmax(50px, 0.6fr) minmax(30px, 0.6fr) minmax(30px, 0.6fr) minmax(30px, 0.6fr) minmax(40px, 0.6fr) minmax(30px, 0.6fr);
+        gap: 0.2rem;
+        padding: 0.3rem;
+        font-size: clamp(0.65rem, 2vw, 0.85rem);
     }
 
     .guess-header span,
     .guess-list li span {
-        padding: 0.1rem 0;
+        padding: 0.1rem;
         text-align: center;
         white-space: normal;
         word-wrap: break-word;
-        overflow: hidden;
+        overflow-wrap: break-word;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -675,16 +678,16 @@ footer {
         text-align: center;
     }
 
-    .guess-list li span:nth-child(2) { /* Team column */
-        font-size: clamp(0.55rem, 1.6vw, 0.75rem);
+    .guess-list li span:nth-child(2) {
+        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
         white-space: normal;
         word-wrap: break-word;
         overflow-wrap: break-word;
         overflow: visible;
-        padding: 0.05rem 0.1rem;
+        padding: 0.1rem;
     }
 
-    .guess-header span:nth-child(2) { /* Team header */
+    .guess-header span:nth-child(2) {
         white-space: normal;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -700,7 +703,7 @@ footer {
     }
 
     .guess-list li .correct {
-        padding: 0.05rem 0.1rem;
+        padding: 0.1rem;
         white-space: normal;
         word-wrap: break-word;
         display: flex;
@@ -711,7 +714,7 @@ footer {
     }
 
     .guess-list li .incorrect {
-        padding: 0.05rem 0.1rem;
+        padding: 0.1rem;
         white-space: normal;
         word-wrap: break-word;
         display: flex;
@@ -726,17 +729,17 @@ footer {
     }
 
     .guess-list li strong {
-        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+        font-size: clamp(0.65rem, 2vw, 0.85rem);
         text-align: center;
     }
 
     button,
     #timer {
-        width: 50%;
-        margin: 0 auto;
+        width: 80%;
+        margin: 0.5rem auto;
         text-align: center;
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
     }
 
     .guess-list li.empty-row {
@@ -745,6 +748,44 @@ footer {
 
     .social-media {
         bottom: 3rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .guess-container {
+        padding: 0.4rem;
+    }
+
+    .guess-header,
+    .guess-list li {
+        grid-template-columns: minmax(50px, 0.8fr) minmax(45px, 0.6fr) minmax(25px, 0.6fr) minmax(25px, 0.6fr) minmax(25px, 0.6fr) minmax(35px, 0.6fr) minmax(25px, 0.6fr);
+        gap: 0.15rem;
+        padding: 0.25rem;
+        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+    }
+
+    .guess-list li span:nth-child(2) {
+        font-size: clamp(0.55rem, 1.6vw, 0.75rem);
+    }
+
+    .guess-list li strong {
+        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+    }
+
+    .guess-list li span {
+        min-height: 18px;
+    }
+
+    .guess-list li > * {
+        min-height: 18px;
+    }
+
+    .guess-list li {
+        min-height: 25px;
+    }
+
+    .guess-list li.empty-row {
+        height: 25px;
     }
 }
 
@@ -773,10 +814,11 @@ footer {
     font-weight: 600;
     border-radius: 8px;
     border: none;
-    background: var(--secondary);
+    background: var(--primary);
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
+    opacity: 70%;
 }
 
 @media (max-width: 480px) {
@@ -798,10 +840,11 @@ footer {
     background: var(--primary);
     transform: scale(1.05);
     transition: transform 0.2s ease, background 0.3s ease;
+    opacity: 100%;
 }
 
 .mode-toggle button:hover {
-    background: var(--accent);
+    background: var(--primary);
     transform: translateY(-2px);
 }
 
