@@ -156,7 +156,15 @@ button:hover {
     transform: translateY(-2px);
 }
 
-#timer {
+.timer-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0.5rem; /* Space from the button */
+    gap: 1rem;
+}
+
+#dailyTimer, #unlimitedTimer {
     font-size: 1rem;
     font-weight: 600;
     color: var(--primary);
@@ -164,6 +172,33 @@ button:hover {
     background: var(--card-bg);
     border-radius: 10px;
     box-shadow: 0 4px 15px var(--card-shadow);
+    text-align: center;
+    min-width: 100px;
+    transition: opacity 0.3s ease;
+}
+
+#dailyTimer.hidden,
+#unlimitedTimer.hidden {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .timer-container {
+        display: flex; /* Ensure it behaves as a block-level flex container */
+        flex-direction: column;
+        align-items: center; /* Center horizontally */
+        justify-content: center; /* Center vertically if needed */
+        margin: 0.5rem auto; /* Center the container itself */
+        width: auto; /* Override previous width to allow natural sizing */
+    }
+
+    #dailyTimer, #unlimitedTimer {
+        width: 100%;
+        max-width: 150px; /* Prevent it from stretching too wide */
+        margin: 0 auto;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
 }
 
 .guess-container {
@@ -644,10 +679,11 @@ footer {
 
     .guess-header,
     .guess-list li {
-        grid-template-columns: minmax(60px, 0.8fr) minmax(50px, 0.6fr) minmax(30px, 0.6fr) minmax(30px, 0.6fr) minmax(30px, 0.6fr) minmax(40px, 0.6fr) minmax(30px, 0.6fr);
-        gap: 0.2rem;
+        /* Increase the width of the Player and Team columns to prevent overlap */
+        grid-template-columns: minmax(80px, 1fr) minmax(60px, 0.8fr) minmax(30px, 0.6fr) minmax(30px, 0.6fr) minmax(30px, 0.6fr) minmax(40px, 0.6fr) minmax(30px, 0.6fr);
+        gap: 0.3rem; /* Slightly increase gap for better separation */
         padding: 0.3rem;
-        font-size: clamp(0.65rem, 2vw, 0.85rem);
+        font-size: clamp(0.6rem, 1.8vw, 0.8rem); /* Reduce font size slightly */
     }
 
     .guess-header span,
@@ -679,7 +715,7 @@ footer {
     }
 
     .guess-list li span:nth-child(2) {
-        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+        font-size: clamp(0.55rem, 1.6vw, 0.75rem); /* Further reduce Team font size */
         white-space: normal;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -729,12 +765,11 @@ footer {
     }
 
     .guess-list li strong {
-        font-size: clamp(0.65rem, 2vw, 0.85rem);
+        font-size: clamp(0.6rem, 1.8vw, 0.8rem); /* Reduce Player name font size */
         text-align: center;
     }
 
-    button,
-    #timer {
+    button {
         width: 80%;
         margin: 0.5rem auto;
         text-align: center;
@@ -758,18 +793,19 @@ footer {
 
     .guess-header,
     .guess-list li {
-        grid-template-columns: minmax(50px, 0.8fr) minmax(45px, 0.6fr) minmax(25px, 0.6fr) minmax(25px, 0.6fr) minmax(25px, 0.6fr) minmax(35px, 0.6fr) minmax(25px, 0.6fr);
-        gap: 0.15rem;
+        /* Further adjust column widths for smaller screens */
+        grid-template-columns: minmax(70px, 1fr) minmax(50px, 0.8fr) minmax(25px, 0.6fr) minmax(25px, 0.6fr) minmax(25px, 0.6fr) minmax(35px, 0.6fr) minmax(25px, 0.6fr);
+        gap: 0.25rem; /* Increase gap slightly */
         padding: 0.25rem;
-        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+        font-size: clamp(0.55rem, 1.6vw, 0.75rem); /* Further reduce font size */
     }
 
     .guess-list li span:nth-child(2) {
-        font-size: clamp(0.55rem, 1.6vw, 0.75rem);
+        font-size: clamp(0.5rem, 1.4vw, 0.7rem); /* Further reduce Team font size */
     }
 
     .guess-list li strong {
-        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+        font-size: clamp(0.55rem, 1.6vw, 0.75rem); /* Further reduce Player name font size */
     }
 
     .guess-list li span {
@@ -933,4 +969,67 @@ footer {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+#streak-container {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: white;
+    color: var(--primary);
+    border-radius: 10px;
+    padding: 0.3rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    gap: 0.25rem;
+}
+
+#current-streak {
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #streak-container {
+        top: 0.5rem;
+        left: 0.5rem;
+        font-size: 0.9rem;
+        padding: 0.2rem 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #streak-container {
+        font-size: 0.8rem;
+    }
+}
+
+/* Keep the help button styling */
+#helpButton {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#helpButton:hover {
+    background: var(--accent);
+    transform: rotate(15deg) scale(1.1);
 }

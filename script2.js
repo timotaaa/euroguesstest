@@ -51,23 +51,23 @@ const players = [
     { name: "Yakuba Ouattara", height: 192, age: 33, jersey: 24, country: "France", position: "G", team: "Paris Basketball" },
     { name: "Maodo Lo", height: 191, age: 32, jersey: 12, country: "Germany", position: "G", team: "Paris Basketball" },
     { name: "Sebastian Herrera", height: 193, age: 27, jersey: 7, country: "Germany", position: "G", team: "Paris Basketball" },
-    { name: "Léopold Cavalière", height: 203, age: 28, jersey: 4, country: "France", position: "F", team: "Paris Basketball" },
+    { name: "Leopold Cavalière", height: 203, age: 28, jersey: 4, country: "France", position: "F", team: "Paris Basketball" },
     { name: "Enzo Shahrvin", height: 201, age: 22, jersey: 18, country: "France", position: "F", team: "Paris Basketball" },
     { name: "Leon Kratzer", height: 211, age: 28, jersey: 8, country: "Germany", position: "C", team: "Paris Basketball" },
     //Pariz
 
     //Barcelona
         { name: "Nicolas Laprovittola", height: 190, age: 34, jersey: 20, country: "Argentina", position: "G", team: "FC Barcelona" },
-        { name: "Juan Núñez", height: 191, age: 21, jersey: 17, country: "Spain", position: "G", team: "FC Barcelona" },
+        { name: "Juan Nunez", height: 191, age: 21, jersey: 17, country: "Spain", position: "G", team: "FC Barcelona" },
         { name: "Dame Sarr", height: 198, age: 18, jersey: 2, country: "Italy", position: "G", team: "FC Barcelona" },
         { name: "Kevin Punter", height: 193, age: 32, jersey: 0, country: "USA", position: "G", team: "FC Barcelona" },
-        { name: "Tomáš Satoranský", height: 201, age: 33, jersey: 13, country: "Czech Republic", position: "G", team: "FC Barcelona" },
-        { name: "Darío Brizuela", height: 188, age: 30, jersey: 8, country: "Spain", position: "G", team: "FC Barcelona" },
+        { name: "Tomaš Satoransky", height: 201, age: 33, jersey: 13, country: "Czech Republic", position: "G", team: "FC Barcelona" },
+        { name: "Dario Brizuela", height: 188, age: 30, jersey: 8, country: "Spain", position: "G", team: "FC Barcelona" },
         { name: "Alex Abrines", height: 198, age: 31, jersey: 21, country: "Spain", position: "F", team: "FC Barcelona" },
         { name: "Justin Anderson", height: 198, age: 31, jersey: 1, country: "USA", position: "F", team: "FC Barcelona" },
         { name: "Jabari Parker", height: 203, age: 29, jersey: 22, country: "USA", position: "F", team: "FC Barcelona" },
         { name: "Willy Hernangómez", height: 210, age: 30, jersey: 14, country: "Spain", position: "C", team: "FC Barcelona" },
-        { name: "Jan Veselý", height: 213, age: 34, jersey: 6, country: "Czech Republic", position: "C", team: "FC Barcelona" },
+        { name: "Jan Vesely", height: 213, age: 34, jersey: 6, country: "Czech Republic", position: "C", team: "FC Barcelona" },
         { name: "Joel Parra", height: 202, age: 24, jersey: 44, country: "Spain", position: "F", team: "FC Barcelona" },
         { name: "Youssoupha Fall", height: 221, age: 29, jersey: 19, country: "Senegal", position: "C", team: "FC Barcelona" },
         { name: "Chimezie Metu", height: 206, age: 28, jersey: 10, country: "Nigeria", position: "F", team: "FC Barcelona" },
@@ -86,7 +86,7 @@ const players = [
         { name: "Mathias Lessort", height: 206, age: 29, jersey: 26, country: "France", position: "C", team: "Panathinaikos" },
         { name: "Kostas Antetokounmpo", height: 208, age: 27, jersey: 37, country: "Greece", position: "C", team: "Panathinaikos" },
         { name: "Marius Grigonis", height: 198, age: 30, jersey: 40, country: "Lithuania", position: "G", team: "Panathinaikos" },
-        { name: "Juancho Hernangómez", height: 206, age: 29, jersey: 41, country: "Spain", position: "F", team: "Panathinaikos" },
+        { name: "Juancho Hernangomez", height: 206, age: 29, jersey: 41, country: "Spain", position: "F", team: "Panathinaikos" },
         { name: "Dinos Mitoglou", height: 210, age: 28, jersey: 44, country: "Greece", position: "F", team: "Panathinaikos" },
         { name: "Omer Yurtseven", height: 213, age: 26, jersey: 77, country: "Turkey", position: "C", team: "Panathinaikos" },
         { name: "Wenyen Gabriel", height: 206, age: 27, jersey: 32, country: "South Sudan", position: "C", team: "Panathinaikos" },
@@ -321,7 +321,7 @@ const players = [
           
 ];
 
-// Game state variable
+// Game state variables
 let dailyTargetPlayer;
 let unlimitedTargetPlayer;
 let currentMode = 'daily';
@@ -331,6 +331,9 @@ let dailyStartTime = null;
 let unlimitedStartTime = null;
 let dailyTimerInterval = null;
 let unlimitedTimerInterval = null;
+let dailyGameCompleted = false;
+let unlimitedGameCompleted = false;
+let currentStreak = 0;
 
 function getDailySeed() {
     const now = new Date();
@@ -341,12 +344,10 @@ function getDailySeed() {
     return Math.floor(diff / oneDay);
 }
 
-
 function getCurrentDateString() {
     const now = new Date();
     return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())).toISOString().split('T')[0];
 }
-
 
 function selectPlayer(isDailyMode) {
     if (!players || players.length === 0) {
@@ -363,65 +364,166 @@ function selectPlayer(isDailyMode) {
     }
 }
 
-dailyTargetPlayer = selectPlayer(true);
-unlimitedTargetPlayer = selectPlayer(false);
-console.log("Daily Target Player:", dailyTargetPlayer);
-console.log("Unlimited Target Player:", unlimitedTargetPlayer);
+function loadGameState() {
+    // Load daily game state
+    const storedDailyGuesses = localStorage.getItem('dailyGuesses');
+    const storedDailyStartTime = localStorage.getItem('dailyStartTime');
+    const storedDailyTarget = localStorage.getItem('dailyTargetPlayer');
+    const storedDailyCompleted = localStorage.getItem('dailyGameCompleted');
+    if (storedDailyGuesses) {
+        dailyGuesses = JSON.parse(storedDailyGuesses);
+    }
+    if (storedDailyStartTime) {
+        dailyStartTime = parseInt(storedDailyStartTime);
+    }
+    if (storedDailyTarget) {
+        dailyTargetPlayer = JSON.parse(storedDailyTarget);
+    } else {
+        dailyTargetPlayer = selectPlayer(true);
+        localStorage.setItem('dailyTargetPlayer', JSON.stringify(dailyTargetPlayer));
+    }
+    dailyGameCompleted = storedDailyCompleted === 'true';
+
+    // Load unlimited game state
+    const storedUnlimitedGuesses = localStorage.getItem('unlimitedGuesses');
+    const storedUnlimitedStartTime = localStorage.getItem('unlimitedStartTime');
+    const storedUnlimitedTarget = localStorage.getItem('unlimitedTargetPlayer');
+    const storedUnlimitedCompleted = localStorage.getItem('unlimitedGameCompleted');
+    if (storedUnlimitedGuesses) {
+        unlimitedGuesses = JSON.parse(storedUnlimitedGuesses);
+    }
+    if (storedUnlimitedStartTime) {
+        unlimitedStartTime = parseInt(storedUnlimitedStartTime);
+    }
+    if (storedUnlimitedTarget) {
+        unlimitedTargetPlayer = JSON.parse(storedUnlimitedTarget);
+    } else {
+        unlimitedTargetPlayer = selectPlayer(false);
+        localStorage.setItem('unlimitedTargetPlayer', JSON.stringify(unlimitedTargetPlayer));
+    }
+    unlimitedGameCompleted = storedUnlimitedCompleted === 'true';
+
+    // Load current mode
+    const storedMode = localStorage.getItem('currentMode');
+    if (storedMode) {
+        currentMode = storedMode;
+    }
+
+    // Load streak
+    const storedStreak = localStorage.getItem('currentStreak');
+    if (storedStreak) {
+        currentStreak = parseInt(storedStreak);
+    }
+    updateStreakDisplay();
+}
+
+function saveGameState() {
+    localStorage.setItem('dailyGuesses', JSON.stringify(dailyGuesses));
+    localStorage.setItem('unlimitedGuesses', JSON.stringify(unlimitedGuesses));
+    localStorage.setItem('dailyStartTime', dailyStartTime ? dailyStartTime.toString() : '');
+    localStorage.setItem('unlimitedStartTime', unlimitedStartTime ? unlimitedStartTime.toString() : '');
+    localStorage.setItem('dailyGameCompleted', dailyGameCompleted.toString());
+    localStorage.setItem('unlimitedGameCompleted', unlimitedGameCompleted.toString());
+    localStorage.setItem('currentMode', currentMode);
+    localStorage.setItem('currentStreak', currentStreak.toString());
+}
+
+function updateStreakDisplay() {
+    const streakElements = document.querySelectorAll('#current-streak');
+    streakElements.forEach(element => {
+        element.textContent = currentStreak;
+    });
+}
+
+function updateStreak(won) {
+    const lastPlayedDate = localStorage.getItem('dailyLastPlayedDate');
+    const currentDate = getCurrentDateString();
+
+    // Check if the last played date is not today or the previous day
+    if (lastPlayedDate && lastPlayedDate !== currentDate && lastPlayedDate !== new Date(Date.now() - 86400000).toISOString().split('T')[0]) {
+        currentStreak = 0;
+    }
+
+    if (won) {
+        currentStreak += 1;
+    } else {
+        currentStreak = 0;
+    }
+
+    localStorage.setItem('currentStreak', currentStreak.toString());
+    updateStreakDisplay();
+}
+
+function resetTimer(mode) {
+    stopTimer(mode);
+    if (mode === 'daily') {
+        dailyStartTime = null;
+        localStorage.removeItem('dailyStartTime');
+        document.getElementById("dailyTimer").textContent = "00:00";
+    } else {
+        unlimitedStartTime = null;
+        localStorage.removeItem('unlimitedStartTime');
+        document.getElementById("unlimitedTimer").textContent = "00:00";
+    }
+}
 
 function startTimer(mode) {
     stopTimer(mode);
 
     console.log(`Starting ${mode} timer...`);
     if (mode === 'daily') {
-        dailyStartTime = Date.now();
+        if (!dailyStartTime) {
+            dailyStartTime = Date.now();
+            localStorage.setItem('dailyStartTime', dailyStartTime.toString());
+        }
         dailyTimerInterval = setInterval(() => {
-            console.log(`Timer tick for ${mode}`);
             updateTimer(mode);
         }, 1000);
-        console.log(`dailyTimerInterval set to: ${dailyTimerInterval}`);
     } else {
-        unlimitedStartTime = Date.now();
+        if (!unlimitedStartTime) {
+            unlimitedStartTime = Date.now();
+            localStorage.setItem('unlimitedStartTime', unlimitedStartTime.toString());
+        }
         unlimitedTimerInterval = setInterval(() => {
-            console.log(`Timer tick for ${mode}`);
             updateTimer(mode);
         }, 1000);
-        console.log(`unlimitedTimerInterval set to: ${unlimitedTimerInterval}`);
     }
 }
 
 function updateTimer(mode) {
     const startTime = mode === 'daily' ? dailyStartTime : unlimitedStartTime;
-    if (!startTime) {
-        console.warn(`No start time for ${mode} timer`);
+    const timerElement = mode === 'daily' ? document.getElementById("dailyTimer") : document.getElementById("unlimitedTimer");
+    if (!startTime || !timerElement) {
+        console.warn(`No start time or timer element for ${mode} timer`);
         return;
     }
     const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
     const minutes = Math.floor(elapsedTime / 60);
     const seconds = elapsedTime % 60;
     const timerDisplay = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    document.getElementById("timer").textContent = timerDisplay;
-    console.log(`${mode} timer updated to: ${timerDisplay}`);
+    timerElement.textContent = timerDisplay;
 }
 
 function stopTimer(mode) {
     if (mode === 'daily') {
         if (dailyTimerInterval) {
-            console.log(`Stopping daily timer with ID: ${dailyTimerInterval}`);
             clearInterval(dailyTimerInterval);
             dailyTimerInterval = null;
-            dailyStartTime = null;
-        } else {
-            console.log("No daily timer to stop");
         }
     } else {
         if (unlimitedTimerInterval) {
-            console.log(`Stopping unlimited timer with ID: ${unlimitedTimerInterval}`);
             clearInterval(unlimitedTimerInterval);
             unlimitedTimerInterval = null;
-            unlimitedStartTime = null;
-        } else {
-            console.log("No unlimited timer to stop");
         }
+    }
+}
+
+function updateTimerDisplay() {
+    const dailyTimer = document.getElementById("dailyTimer");
+    const unlimitedTimer = document.getElementById("unlimitedTimer");
+    if (dailyTimer && unlimitedTimer) {
+        dailyTimer.classList.toggle("hidden", currentMode !== 'daily');
+        unlimitedTimer.classList.toggle("hidden", currentMode !== 'unlimited');
     }
 }
 
@@ -433,12 +535,22 @@ function hasPlayedToday() {
 
 function markGameAsPlayed() {
     localStorage.setItem('dailyLastPlayedDate', getCurrentDateString());
+    dailyGameCompleted = true;
+    saveGameState();
 }
 
 function resetUnlimitedGame() {
     unlimitedTargetPlayer = selectPlayer(false);
     unlimitedGuesses = [];
-    stopTimer('unlimited');
+    unlimitedGameCompleted = false;
+    resetTimer('unlimited');
+
+    // Clear unlimited mode storage
+    localStorage.removeItem('unlimitedGuesses');
+    localStorage.removeItem('unlimitedStartTime');
+    localStorage.removeItem('unlimitedGameCompleted');
+    localStorage.setItem('unlimitedTargetPlayer', JSON.stringify(unlimitedTargetPlayer));
+
     const guessList = document.getElementById("guessList");
     guessList.innerHTML = `
         <li class="empty-row"><span class="guess-number">1</span></li>
@@ -455,60 +567,24 @@ function resetUnlimitedGame() {
     button.disabled = false;
     button.style.opacity = "1";
     button.style.cursor = "pointer";
-    document.getElementById("timer").textContent = "00:00";
-    console.log("New Unlimited Target Player:", unlimitedTargetPlayer);
+    document.getElementById("unlimitedTimer").textContent = "00:00";
 
     const guessContainer = document.querySelector(".guess-container");
     guessContainer.classList.remove("reset-animate");
-    void guessContainer.offsetWidth; // Trigger reflow
+    void guessContainer.offsetWidth;
     guessContainer.classList.add("reset-animate");
 
     startTimer('unlimited');
+    updateTimerDisplay();
+    saveGameState();
 }
 
-function initializeGame() {
-    const now = new Date();
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    document.getElementById("dailyChallenge").textContent = `Daily EuroGuess - ${now.toLocaleDateString('en-US', options)}`;
-
-    // Mode toggle
-    document.getElementById("dailyModeButton").addEventListener("click", () => switchMode('daily'));
-    document.getElementById("unlimitedModeButton").addEventListener("click", () => switchMode('unlimited'));
-
-    if (currentMode === 'daily' && hasPlayedToday()) {
-        showAlreadyPlayedMessage();
-        disableInputAndButton();
-        stopTimer('daily');
-    } else {
-        startTimer(currentMode);
-    }
-
-    document.getElementById("tryAgainButton").addEventListener("click", () => {
-        document.getElementById("unlimitedGameOverModal").style.display = "none";
-        resetUnlimitedGame();
-    });
-}
-
-function switchMode(mode) {
-    if (mode === currentMode) return;
-    console.log(`Switching to ${mode} mode`);
-    currentMode = mode;
-
-    const modeToggle = document.querySelector(".mode-toggle");
-    modeToggle.classList.remove("animate");
-    void modeToggle.offsetWidth;
-    modeToggle.classList.add("animate");
-
-    // Stop timer
-    stopTimer('daily');
-    stopTimer('unlimited');
-
-    document.getElementById("dailyModeButton").classList.toggle("active", mode === 'daily');
-    document.getElementById("unlimitedModeButton").classList.toggle("active", mode === 'unlimited');
-    document.getElementById("dailyChallenge").textContent = mode === 'daily' ? `Daily EuroGuess - ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` : "Unlimited EuroGuess";
-
-
+function renderGuesses() {
+    const guesses = currentMode === 'daily' ? dailyGuesses : unlimitedGuesses;
+    const targetPlayer = currentMode === 'daily' ? dailyTargetPlayer : unlimitedTargetPlayer;
     const guessList = document.getElementById("guessList");
+
+    // Reset guess list
     guessList.innerHTML = `
         <li class="empty-row"><span class="guess-number">1</span></li>
         <li class="empty-row"><span class="guess-number">2</span></li>
@@ -518,6 +594,109 @@ function switchMode(mode) {
         <li class="empty-row"><span class="guess-number">6</span></li>
         <li class="empty-row"><span class="guess-number">7</span></li>
     `;
+
+    // Render existing guesses
+    const emptyRows = guessList.querySelectorAll("li.empty-row");
+    guesses.forEach((guessedPlayer, index) => {
+        if (index < emptyRows.length) {
+            const row = emptyRows[index];
+            row.classList.remove("empty-row");
+            row.style.opacity = "1";
+            row.innerHTML = `<strong>${guessedPlayer.name}</strong>`;
+
+            row.append(createStatElement(guessedPlayer.team, targetPlayer.team));
+            row.append(createStatElement(guessedPlayer.height, targetPlayer.height, true));
+            row.append(createStatElement(guessedPlayer.age, targetPlayer.age, true));
+            row.append(createStatElement(guessedPlayer.jersey, targetPlayer.jersey, true));
+            row.append(createStatElement(guessedPlayer.country, targetPlayer.country));
+            row.append(createStatElement(guessedPlayer.position, targetPlayer.position));
+
+            if (guessedPlayer.name === targetPlayer.name) {
+                row.querySelectorAll('span').forEach(span => span.classList.add('correct'));
+            }
+        }
+    });
+}
+
+function initializeGame() {
+    loadGameState();
+
+    const now = new Date();
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    document.getElementById("dailyChallenge").textContent = currentMode === 'daily' ?
+        `Daily EuroGuess - ${now.toLocaleDateString('en-US', options)}` :
+        "Unlimited EuroGuess";
+
+    // Mode toggle
+    document.getElementById("dailyModeButton").addEventListener("click", () => switchMode('daily'));
+    document.getElementById("unlimitedModeButton").addEventListener("click", () => switchMode('unlimited'));
+
+    // Set initial mode UI
+    document.getElementById("dailyModeButton").classList.toggle("active", currentMode === 'daily');
+    document.getElementById("unlimitedModeButton").classList.toggle("active", currentMode === 'unlimited');
+
+    // Render guesses for the current mode
+    renderGuesses();
+    updateTimerDisplay();
+
+    // Check game completion or daily play status
+    if (currentMode === 'daily' && (hasPlayedToday() || dailyGameCompleted)) {
+        showAlreadyPlayedMessage();
+        disableInputAndButton();
+        stopTimer('daily');
+    } else if (currentMode === 'unlimited' && unlimitedGameCompleted) {
+        document.getElementById("revealUnlimitedPlayer").textContent = unlimitedTargetPlayer.name;
+        document.getElementById("unlimitedGameOverModal").style.display = "flex";
+        disableInputAndButton();
+        stopTimer('unlimited');
+    } else {
+        startTimer(currentMode);
+    }
+
+    document.getElementById("tryAgainButton").addEventListener("click", () => {
+        document.getElementById("unlimitedGameOverModal").style.display = "none";
+        resetUnlimitedGame();
+        renderGuesses();
+    });
+
+    // Add visibilitychange event listener to reset timers when page is hidden
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            resetTimer('daily');
+            resetTimer('unlimited');
+        } else if (document.visibilityState === 'visible') {
+            if (!dailyGameCompleted && currentMode === 'daily') {
+                startTimer('daily');
+            }
+            if (!unlimitedGameCompleted && currentMode === 'unlimited') {
+                startTimer('unlimited');
+            }
+            updateTimerDisplay();
+        }
+    });
+}
+
+function switchMode(mode) {
+    if (mode === currentMode) return;
+    currentMode = mode;
+    localStorage.setItem('currentMode', currentMode);
+
+    const modeToggle = document.querySelector(".mode-toggle");
+    modeToggle.classList.remove("animate");
+    void modeToggle.offsetWidth;
+    modeToggle.classList.add("animate");
+
+    stopTimer('daily');
+    stopTimer('unlimited');
+
+    document.getElementById("dailyModeButton").classList.toggle("active", mode === 'daily');
+    document.getElementById("unlimitedModeButton").classList.toggle("active", mode === 'unlimited');
+    document.getElementById("dailyChallenge").textContent = mode === 'daily' ?
+        `Daily EuroGuess - ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` :
+        "Unlimited EuroGuess";
+
+    renderGuesses();
+    updateTimerDisplay();
 
     document.getElementById("playerInput").value = "";
     document.getElementById("playerInput").disabled = false;
@@ -531,12 +710,16 @@ function switchMode(mode) {
         alreadyPlayedMessage.style.display = "none";
     }
 
-    if (mode === 'daily' && hasPlayedToday()) {
+    if (mode === 'daily' && (hasPlayedToday() || dailyGameCompleted)) {
         showAlreadyPlayedMessage();
         disableInputAndButton();
         stopTimer('daily');
+    } else if (mode === 'unlimited' && unlimitedGameCompleted) {
+        document.getElementById("revealUnlimitedPlayer").textContent = unlimitedTargetPlayer.name;
+        document.getElementById("unlimitedGameOverModal").style.display = "flex";
+        disableInputAndButton();
+        stopTimer('unlimited');
     } else {
-        document.getElementById("timer").textContent = "00:00";
         startTimer(mode);
     }
 }
@@ -577,7 +760,7 @@ function showSuccessMessage() {
         document.getElementById('shareButton').addEventListener('click', () => {
             const guesses = 7 - document.querySelectorAll('.guess-list li.empty-row').length;
             const resultText = `I guessed the ELWordle player in ${guesses} tries! 🏀 Play at [your-site-url] #ELWordle`;
-            
+
             if (navigator.share) {
                 navigator.share({
                     title: 'ELWordle Result',
@@ -596,6 +779,8 @@ function showSuccessMessage() {
         successDiv.innerHTML = `Congrats! You got it!`;
         document.body.appendChild(successDiv);
         setTimeout(() => successDiv.remove(), 5000);
+        unlimitedGameCompleted = true;
+        saveGameState();
     }
 }
 
@@ -623,8 +808,6 @@ function showAlreadyPlayedMessage() {
 function simplifyPosition(position) {
     const positionMap = {
         'G': 'G',
-        'G': 'G',
-        'F': 'F',
         'F': 'F',
         'C': 'C'
     };
@@ -636,7 +819,7 @@ function createStatElement(value, correctValue, isNumeric = false) {
     let displayValue = value;
 
     if (!isNumeric && typeof value === "string" && ["PG", "SG", "SF", "PF", "C"].includes(value)) {
-        displayValue = simplifyPosition(value, isMobile);
+        displayValue = simplifyPosition(value);
     }
 
     const element = document.createElement('span');
@@ -663,7 +846,7 @@ function createStatElement(value, correctValue, isNumeric = false) {
             arrow.style.fontWeight = 'bold';
             element.appendChild(arrow);
         }
-    } else if (displayValue === (isMobile ? simplifyPosition(correctValue, isMobile) : correctValue)) {
+    } else if (displayValue === (isMobile ? simplifyPosition(correctValue) : correctValue)) {
         element.classList.add('correct');
         const checkmark = document.createElement('span');
         checkmark.textContent = ' ✓';
@@ -679,13 +862,23 @@ function showUnlimitedGameOver() {
     document.getElementById("revealUnlimitedPlayer").textContent = unlimitedTargetPlayer.name;
     document.getElementById("unlimitedGameOverModal").style.display = "flex";
     stopTimer('unlimited');
+    unlimitedGameCompleted = true;
+    saveGameState();
 }
 
 function checkGuess() {
-    if (currentMode === 'daily' && hasPlayedToday()) {
+    if (currentMode === 'daily' && (hasPlayedToday() || dailyGameCompleted)) {
         showAlreadyPlayedMessage();
         disableInputAndButton();
         stopTimer('daily');
+        return;
+    }
+
+    if (currentMode === 'unlimited' && unlimitedGameCompleted) {
+        document.getElementById("revealUnlimitedPlayer").textContent = unlimitedTargetPlayer.name;
+        document.getElementById("unlimitedGameOverModal").style.display = "flex";
+        disableInputAndButton();
+        stopTimer('unlimited');
         return;
     }
 
@@ -700,16 +893,17 @@ function checkGuess() {
     const emptyRows = guessList.querySelectorAll("li.empty-row");
 
     if (emptyRows.length === 0) {
-        console.log("No more guesses left!");
         if (currentMode === 'daily') {
             showGameOver();
             markGameAsPlayed();
             updateStats(false, 0);
+            updateStreak(false);
             disableInputAndButton();
         } else {
             showUnlimitedGameOver();
             updateStats(false, 0);
         }
+        saveGameState();
         return;
     }
 
@@ -727,34 +921,42 @@ function checkGuess() {
 
     document.getElementById("playerInput").value = "";
     guesses.push(guessedPlayer);
+    saveGameState();
 
     if (guessedPlayer.name === targetPlayer.name) {
-        console.log("Correct guess! Attempting to stop timer...");
         firstEmptyRow.querySelectorAll('span').forEach(span => span.classList.add('correct'));
         stopTimer(currentMode);
         showSuccessMessage();
         const guessCount = guesses.length;
         updateStats(true, guessCount);
         if (currentMode === 'daily') {
+            updateStreak(true);
             disableInputAndButton();
+            dailyGameCompleted = true;
         } else {
             const guessContainer = document.querySelector(".guess-container");
             guessContainer.classList.add("new-player-waiting");
+            unlimitedGameCompleted = true;
             setTimeout(() => {
                 resetUnlimitedGame();
-                guessContainer.classList.remove("new-player-waiting"); 
+                guessContainer.classList.remove("new-player-waiting");
+                renderGuesses();
             }, 2000);
         }
+        saveGameState();
     } else if (emptyRows.length === 1) {
         if (currentMode === 'daily') {
             showGameOver();
             markGameAsPlayed();
             updateStats(false, 0);
+            updateStreak(false);
             disableInputAndButton();
+            dailyGameCompleted = true;
         } else {
             showUnlimitedGameOver();
             updateStats(false, 0);
         }
+        saveGameState();
     }
 }
 
@@ -787,7 +989,6 @@ unlimitedGameOverCloseButton.onclick = () => unlimitedGameOverModal.style.displa
     });
 });
 
-// Statistika
 function updateStats(won, guesses) {
     let stats = JSON.parse(localStorage.getItem('elwordleStats')) || {
         gamesPlayed: 0,
@@ -831,4 +1032,6 @@ function showGameOver() {
     document.getElementById("revealPlayer").textContent = dailyTargetPlayer.name;
     gameOverModal.style.display = "flex";
     stopTimer('daily');
+    dailyGameCompleted = true;
+    saveGameState();
 }

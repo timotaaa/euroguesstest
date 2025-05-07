@@ -3,16 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EuroGuess</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>EuroGuess</title> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play EuroGuess, the ultimate EuroLeague basketball player guessing game. Test your knowledge with daily and unlimited modes!">
+    <meta name="keywords" content="EuroGuess, EuroLeague, basketball quiz, player guessing game, sports game, daily challenge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Mihailo Timotić">
+    <meta property="og:title" content="EuroGuess - Guess the EuroLeague Player">
+    <meta property="og:description" content="Challenge yourself with EuroGuess, a fun game to guess EuroLeague basketball players in 7 tries. Play daily or unlimited modes!">
+    <meta property="og:url" content="https://www.euroguess.net">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.euroguess.net/assets/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EuroGuess - EuroLeague Player Guessing Game">
+    <meta name="twitter:description" content="Guess EuroLeague players in 7 tries with EuroGuess. Play now and challenge your basketball knowledge!">
+    <meta name="twitter:image" content="https://www.euroguess.net/assets/og-image.jpg">
+    <link rel="canonical" href="https://www.euroguess.net">
+    <link rel="sitemap" href="/sitemap.xml">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <title>EuroGuess - EuroLeague Basketball Player Guessing Game</title>
+    <link rel="preload" href="style.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
     <div id="loader" class="loader">
         <div class="spinner"></div>
     </div>
     
+
     <button id="helpButton" class="help-button">
         <i class="fas fa-question-circle"></i>
     </button>
@@ -72,6 +97,10 @@
         </div>
     </div>
 
+    <body>
+        
+        <div id="streak-container">Daily Streak: <span id="current-streak">0</span></div>
+
     <h1>Euro<i class="fas fa-basketball"></i>Guess</h1>
 <h2 id="dailyChallenge">Daily EuroGuess - Loading...</h2>
     <div class="mode-toggle">
@@ -82,7 +111,10 @@
     <input type="text" id="playerInput" placeholder="Type player name..." oninput="showSuggestions()">
     <div class="autocomplete-suggestions" id="suggestions"></div>
     <button onclick="checkGuess()">Guess</button>
-    <div id="timer">00:00</div>
+    <div class="timer-container">
+        <span id="dailyTimer" class="hidden">00:00</span>
+        <span id="unlimitedTimer" class="hidden">00:00</span>
+    </div>
 </div>
     
 
@@ -109,8 +141,9 @@
     </div>
 
 
+
     <div class="social-media">
-        <a href="https://www.instagram.com/sa_terenaa/" target="_blank" class="social-icon">
+        <a href="https://www.instagram.com/timotaa/" target="_blank" class="social-icon">
             <i class="fab fa-instagram"></i>
         </a>
         <a href="https://www.twitter.com/timotaa_" target="_blank" class="social-icon">
