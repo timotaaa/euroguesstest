@@ -25,10 +25,10 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <title>EuroGuess - EuroLeague Basketball Player Guessing Game</title>
-    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="style-enhanced.css" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-enhanced.css">
 </head>
 
 
@@ -83,7 +83,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>How to Play EuroGuess</h2>
-            <p>Guess the EuroLeague player in 7 tries! After each guess, see how close you were.</p>
+            <p>Guess the EuroLeague player in 10 tries! After each guess, see how close you were.</p>
             <ul>
                 <li><strong>Team:</strong> Current team.</li>
                 <li><strong>Position:</strong> e.g., G, F, C.</li>
@@ -103,6 +103,10 @@
 
     <h1>Euro<i class="fas fa-basketball"></i>Guess</h1>
 <h2 id="dailyChallenge">Daily EuroGuess - Loading...</h2>
+<div id="nextDailyCountdown" class="next-daily hidden">
+    Next Daily in <span id="countdownTimer">00:00:00</span>
+</div>
+
     <div class="mode-toggle">
         <button id="dailyModeButton" class="active">Daily</button>
         <button id="unlimitedModeButton">Unlimited</button>
@@ -137,6 +141,9 @@
             <li class="empty-row"><span class="guess-number">5</span></li>
             <li class="empty-row"><span class="guess-number">6</span></li>
             <li class="empty-row"><span class="guess-number">7</span></li>
+            <li class="empty-row"><span class="guess-number">8</span></li>
+            <li class="empty-row"><span class="guess-number">9</span></li>
+            <li class="empty-row"><span class="guess-number">10</span></li>
         </ul>
     </div>
 
