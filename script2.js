@@ -464,27 +464,25 @@ function selectPlayer(isDailyMode) {
 
 function loadGameState() {
     const today = getCurrentDateString();
-    const lastPlayedDate = localStorage.getItem('dailyLastPlayedDate');
+    const storedDailyTarget = localStorage.getItem('dailyTargetPlayer');
+    const storedDailyDate = localStorage.getItem('dailyTargetDate');
 
-    // ✅ If last played date is not today, reset daily game
-    if (lastPlayedDate !== today) {
-    dailyTargetPlayer = selectPlayer(true);
-    dailyGuesses = [];
-    dailyGameCompleted = false;
-    dailyStartTime = null;
+    // ✅ If target date is not today, reset daily game
+    if (storedDailyDate !== today) {
+        dailyTargetPlayer = selectPlayer(true);
+        dailyGuesses = [];
+        dailyGameCompleted = false;
+        dailyStartTime = null;
 
-    localStorage.setItem('dailyTargetPlayer', JSON.stringify(dailyTargetPlayer));
-    localStorage.removeItem('dailyGuesses');
-    localStorage.removeItem('dailyStartTime');
-    localStorage.removeItem('dailyGameCompleted');
-
-    // ✅ DO NOT TOUCH dailyLastPlayedDate HERE
-
+        localStorage.setItem('dailyTargetPlayer', JSON.stringify(dailyTargetPlayer));
+        localStorage.setItem('dailyTargetDate', today);
+        localStorage.removeItem('dailyGuesses');
+        localStorage.removeItem('dailyStartTime');
+        localStorage.removeItem('dailyGameCompleted');
     } else {
         // Load previous state if still the same day
         const storedDailyGuesses = localStorage.getItem('dailyGuesses');
         const storedDailyStartTime = localStorage.getItem('dailyStartTime');
-        const storedDailyTarget = localStorage.getItem('dailyTargetPlayer');
         const storedDailyCompleted = localStorage.getItem('dailyGameCompleted');
 
         dailyGuesses = storedDailyGuesses ? JSON.parse(storedDailyGuesses) : [];
@@ -525,6 +523,8 @@ function saveGameState() {
     localStorage.setItem('currentMode', currentMode);
     localStorage.setItem('currentStreak', currentStreak.toString());
     localStorage.setItem('unlimitedTargetPlayer', JSON.stringify(unlimitedTargetPlayer));
+    localStorage.setItem('dailyTargetPlayer', JSON.stringify(dailyTargetPlayer));
+    localStorage.setItem('dailyTargetDate', getCurrentDateString());
 }
 
 function updateStreakDisplay() {
@@ -923,6 +923,31 @@ function showSuggestions() {
         suggestionsDiv.appendChild(div);
     });
 }
+
+// Close autocomplete when clicking outside
+document.addEventListener('click', function(event) {
+    const input = document.getElementById("playerInput");
+    const suggestionsDiv = document.getElementById("suggestions");
+    const isClickInsideInput = input && input.contains(event.target);
+    const isClickInsideSuggestions = suggestionsDiv && suggestionsDiv.contains(event.target);
+    
+    if (!isClickInsideInput && !isClickInsideSuggestions) {
+        if (suggestionsDiv) {
+            suggestionsDiv.innerHTML = "";
+        }
+    }
+});
+
+// Close autocomplete when input loses focus (for mobile)
+document.getElementById("playerInput").addEventListener('blur', function() {
+    // Small delay to allow click on suggestion to register
+    setTimeout(() => {
+        const suggestionsDiv = document.getElementById("suggestions");
+        if (suggestionsDiv) {
+            suggestionsDiv.innerHTML = "";
+        }
+    }, 200);
+});
 
 function showSuccessMessage() {
     const successDiv = document.createElement("div");

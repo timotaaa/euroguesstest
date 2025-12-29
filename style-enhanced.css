@@ -1005,7 +1005,6 @@ footer {
         line-height: 1.1;
     }
 
-    /* Player names can wrap */
     .guess-list li strong {
         font-size: 0.68rem;
         white-space: normal;
