@@ -897,17 +897,17 @@ footer {
     .guess-list li {
         display: grid;
         grid-template-columns: 
-            1.4fr  /* Player */
-            1.1fr  /* Team */
-            0.75fr /* Height */
-            0.65fr /* Age */
-            0.6fr  /* Jersey */
-            1.1fr  /* Country */
-            0.7fr; /* Position */
-        gap: 0.25rem;
-        padding: 0.4rem 0.15rem;
-        font-size: 0.68rem;
-        min-height: 42px;
+            1.25fr /* Player */
+            0.95fr /* Team */
+            0.65fr /* Height */
+            0.55fr /* Age */
+            0.55fr /* Jersey */
+            0.95fr /* Country */
+            0.85fr; /* Position */
+        gap: 0.18rem;
+        padding: 0.35rem 0.12rem;
+        font-size: 0.64rem;
+        min-height: 40px;
         align-items: center;
         width: 100%;
     }
@@ -955,23 +955,23 @@ footer {
 
     .guess-header {
         border-bottom: none;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.4rem;
         background: transparent;
-        font-size: 0.5rem;
+        font-size: 0.45rem;
     }
 
     .guess-header span {
-        font-size: 0.5rem;
+        font-size: 0.45rem;
         font-weight: 700;
-        letter-spacing: -0.05em;
+        letter-spacing: -0.06em;
         padding: 0;
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        word-break: break-word;
-        line-height: 1.1;
-        hyphens: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
     }
 
     /* Allow team and country names to wrap */
