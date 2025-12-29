@@ -897,15 +897,15 @@ footer {
     .guess-list li {
         display: grid;
         grid-template-columns: 
-            1.3fr  /* Player - wider */
-            1.05fr /* Team - wider */
-            0.7fr  /* Height - wider */
-            0.6fr  /* Age - wider */
-            0.65fr /* Jersey - wider */
-            1.05fr /* Country - wider */
-            0.65fr; /* Position - wider */
-        gap: 0.22rem;
-        padding: 0.4rem 0.18rem;
+            1.4fr  /* Player */
+            1.1fr  /* Team */
+            0.75fr /* Height */
+            0.65fr /* Age */
+            0.6fr  /* Jersey */
+            1.1fr  /* Country */
+            0.7fr; /* Position */
+        gap: 0.25rem;
+        padding: 0.4rem 0.15rem;
         font-size: 0.68rem;
         min-height: 42px;
         align-items: center;
@@ -957,39 +957,22 @@ footer {
         border-bottom: none;
         margin-bottom: 0.5rem;
         background: transparent;
+        font-size: 0.5rem;
     }
 
     .guess-header span {
-        text-indent: -9999px;
-        position: relative;
-        font-size: 0.52rem;
+        font-size: 0.5rem;
         font-weight: 700;
-        letter-spacing: -0.04em;
-        padding: 0 0.1rem;
-    }
-
-    .guess-header span::before {
-        content: attr(data-short);
-        text-indent: 0;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
+        letter-spacing: -0.05em;
+        padding: 0;
         text-align: center;
-        white-space: nowrap;
-        letter-spacing: -0.04em;
-        font-size: 0.52rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        word-break: break-word;
+        line-height: 1.1;
+        hyphens: auto;
     }
-
-    /* Override with even shorter labels for mobile */
-    .guess-header span:nth-child(1)::before { content: "NAME"; }
-    .guess-header span:nth-child(2)::before { content: "TEAM"; }
-    .guess-header span:nth-child(3)::before { content: "HT"; }
-    .guess-header span:nth-child(4)::before { content: "AGE"; }
-    .guess-header span:nth-child(5)::before { content: "#"; }
-    .guess-header span:nth-child(6)::before { content: "CTRY"; }
-    .guess-header span:nth-child(7)::before { content: "POS"; }
 
     /* Allow team and country names to wrap */
     .guess-list li span:nth-child(2) {
