@@ -897,15 +897,15 @@ footer {
     .guess-list li {
         display: grid;
         grid-template-columns: 
-            1.2fr  /* Player */
-            1fr    /* Team */
-            0.65fr /* Height */
-            0.55fr /* Age */
-            0.6fr  /* Jersey */
-            1fr    /* Country */
-            0.6fr; /* Position */
-        gap: 0.15rem;
-        padding: 0.35rem 0.15rem;
+            1.3fr  /* Player - wider */
+            1.05fr /* Team - wider */
+            0.7fr  /* Height - wider */
+            0.6fr  /* Age - wider */
+            0.65fr /* Jersey - wider */
+            1.05fr /* Country - wider */
+            0.65fr; /* Position - wider */
+        gap: 0.22rem;
+        padding: 0.4rem 0.18rem;
         font-size: 0.68rem;
         min-height: 42px;
         align-items: center;
@@ -962,9 +962,10 @@ footer {
     .guess-header span {
         text-indent: -9999px;
         position: relative;
-        font-size: 0.62rem;
+        font-size: 0.52rem;
         font-weight: 700;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.04em;
+        padding: 0 0.1rem;
     }
 
     .guess-header span::before {
@@ -977,7 +978,8 @@ footer {
         width: 100%;
         text-align: center;
         white-space: nowrap;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.04em;
+        font-size: 0.52rem;
     }
 
     /* Override with even shorter labels for mobile */
@@ -1005,6 +1007,7 @@ footer {
         line-height: 1.1;
     }
 
+    /* Player names can wrap */
     .guess-list li strong {
         font-size: 0.68rem;
         white-space: normal;
